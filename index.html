@@ -1,1 +1,66 @@
-<h1>Deals Coming Soon...</h1>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Live Unmissable Deals</title>
+        <meta http-equiv="refresh" content="60">
+        <style>
+            body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f2f5; margin: 0; padding: 10px; }
+            .header { text-align: center; margin-bottom: 20px; }
+            .header h1 { color: #1a1a1a; margin: 10px 0; font-size: 1.5rem; }
+            .status { font-size: 0.8rem; color: #666; background: #fff; padding: 5px 15px; border-radius: 20px; display: inline-block; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+            
+            .container { max-width: 600px; margin: 0 auto; }
+            
+            .card { background: white; border-radius: 12px; padding: 15px; margin-bottom: 15px; display: flex; align-items: start; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.2s; }
+            .card:active { transform: scale(0.98); }
+            
+            .thumb { width: 100px; height: 100px; flex-shrink: 0; margin-right: 15px; position: relative; }
+            .thumb img { width: 100%; height: 100%; object-fit: contain; }
+            
+            .info { flex: 1; min-width: 0; }
+            .site-tag { font-size: 0.7rem; font-weight: bold; text-transform: uppercase; color: #888; margin-bottom: 4px; display: block; }
+            .title { font-size: 0.95rem; font-weight: 600; color: #333; margin: 0 0 8px 0; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+            
+            .price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px; }
+            .price { font-size: 1.3rem; font-weight: 800; color: #000; }
+            .mrp { text-decoration: line-through; color: #999; font-size: 0.9rem; }
+            .off { color: #2ecc71; font-weight: 700; font-size: 0.85rem; background: #e8f8f0; padding: 2px 6px; border-radius: 4px; }
+            
+            .btn { display: block; text-align: center; background: #ff9900; color: white; text-decoration: none; padding: 10px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; }
+            .fk-btn { background: #2874f0; }
+            
+            .footer { text-align: center; color: #999; font-size: 0.8rem; margin-top: 30px; padding-bottom: 20px; }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>⚡ Unmissable Deals</h1>
+            <div class="status">Last Updated: 22:01 PM</div>
+        </div>
+        <div class="container">
+    
+        <div class="card">
+            <div class="thumb"><img src="https://m.media-amazon.com/images/I/41iiQeW7n2L._SY300_SX300_QL70_ML2_.jpg" loading="lazy"></div>
+            <div class="info">
+                <span class="site-tag">Amazon</span>
+                <div class="title">ASUS AP1601 Laptop Bag, 18L Storage capcity Backpack, Suitable for 16-inch Laptop (Grey)</div>
+                <div class="price-row">
+                    <span class="price">₹436</span>
+                    <span class="mrp">₹1499</span>
+                    <span class="off">70% OFF</span>
+                </div>
+                <a href="https://www.amazon.in/dp/B0CRDRHHKR?tag=unmissabled03-21" class="btn" target="_blank">Buy Now</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Prices change rapidly. Checked automatically.<br>
+            © Unmissable Deals
+        </div>
+        </div>
+    </body>
+    </html>
+    
