@@ -5,77 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unmissable Deals & Offers</title>
     <style>
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-            background: #f4f6f8; 
+        body, html { 
             margin: 0; 
             padding: 0; 
+            height: 100%; 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            background: #f4f6f8; 
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
+
+        /* Full Width Header */
         .header {
             background: #fff;
-            padding: 20px;
+            padding: 15px 20px;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
+            position: relative;
+            z-index: 10;
         }
-        .header h1 {
-            margin: 0;
-            color: #333;
-            font-size: 1.8rem;
+        .header h1 { margin: 0; color: #333; font-size: 1.5rem; }
+        
+        /* Full Screen Container */
+        .main-container {
+            width: 100%;
+            height: calc(100vh - 120px); /* Fill remaining height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .header p {
-            margin: 5px 0 0;
-            color: #666;
-            font-size: 0.9rem;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 10px;
-        }
-        .iframe-wrapper {
-            background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+
+        /* Seamless Iframe */
         iframe {
             width: 100%;
+            height: 100%;
             border: none;
             display: block;
+            background: #fff;
         }
+
+        /* AdBlock Fallback Styling */
+        #adblock-view {
+            display: none; /* Hidden by default */
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 400px;
+        }
+        .btn-launch {
+            background: #ff9900;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-top: 15px;
+            transition: transform 0.2s;
+        }
+        .btn-launch:active { transform: scale(0.98); }
+
         .footer {
             text-align: center;
-            padding: 20px;
-            color: #888;
-            font-size: 0.8rem;
-            margin-top: 20px;
+            padding: 10px;
+            color: #999;
+            font-size: 0.75rem;
+            background: #f4f6f8;
         }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>🔥 Unmissable Deals</h1>
-        <p>Handpicked offers from Amazon, Flipkart, Myntra & more.</p>
+        <h1>⚡ Unmissable Deals</h1>
     </div>
 
-    <div class="container">
-        <div class="iframe-wrapper">
-            <iframe 
-                src='https://inrdeals.com/embed/deals?user=esh416135721' 
-                width='100%' 
-                height='1400' 
-                frameborder='0' 
-                allowTransparency='true'>
-            </iframe>
-            </div>
+    <div class="main-container">
+        
+        <iframe 
+            id="dealFrame"
+            src='https://inrdeals.com/embed/deals?user=esh416135721' 
+            allowTransparency='true'>
+        </iframe>
+
+        <div id="adblock-view">
+            <h2>🙈 Deals Hidden?</h2>
+            <p style="color:#666; line-height: 1.5;">
+                It looks like your <b>Ad Blocker</b> is hiding the offers.<br>
+                Click below to open the secure Deal Engine.
+            </p>
+            <a href="https://inrdeals.com/embed/deals?user=esh416135721" target="_blank" class="btn-launch">
+                🚀 Launch Deal Engine
+            </a>
+        </div>
+
     </div>
 
     <div class="footer">
-        Prices and availability are subject to change. <br>
-        © 2025 Unmissable Deals
+        © 2025 Unmissable Deals • Managed by INRDeals
     </div>
+
+    <script>
+        window.onload = function() {
+            var iframe = document.getElementById('dealFrame');
+            var fallback = document.getElementById('adblock-view');
+
+            // Check if iframe actually loaded content
+            setTimeout(function() {
+                try {
+                    // If height is 0 or display is none, it was blocked
+                    if (iframe.offsetHeight === 0 || window.getComputedStyle(iframe).display === 'none') {
+                        throw new Error("Blocked");
+                    }
+                } catch (e) {
+                    // Show friendly fallback
+                    iframe.style.display = 'none';
+                    fallback.style.display = 'block';
+                }
+            }, 1500); // Wait 1.5s for blocker to act
+        };
+    </script>
 
 </body>
 </html>
