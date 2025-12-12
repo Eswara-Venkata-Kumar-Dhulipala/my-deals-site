@@ -63,9 +63,9 @@
             filter: contrast(102%) saturate(105%);
         }
 
-        /* ADBLOCK MESSAGE CARD */
+        /* ADBLOCK MESSAGE CARD (Only for Extensions) */
         #adblock-view {
-            display: none; /* Hidden by default */
+            display: none;
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
@@ -79,7 +79,6 @@
             z-index: 50;
         }
         #adblock-view h2 { margin-top: 0; color: var(--primary); font-size: 1.5rem; }
-        #adblock-view p { color: #666; line-height: 1.6; margin-bottom: 25px; }
         
         .instruction-box {
             background: #f1f3f5;
@@ -90,25 +89,26 @@
             color: #555;
             margin-bottom: 20px;
         }
-        .instruction-box strong { color: #333; }
 
         .btn-reload {
-            background: var(--primary);
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background 0.2s;
+            background: var(--primary); color: white; padding: 12px 30px;
+            border: none; border-radius: 50px; font-weight: 600; cursor: pointer;
         }
-        .btn-reload:hover { background: #1a252f; }
 
         /* SEO CONTENT */
         .seo-content {
             padding: 40px 10%; background: #fff; color: #444; 
             font-size: 0.9rem; line-height: 1.6; border-top: 1px solid #eee;
+        }
+
+        /* MANUAL HELP LINK */
+        .troubleshoot-link {
+            text-align: center;
+            padding: 10px;
+            background: #ffeeba;
+            color: #856404;
+            font-size: 0.8rem;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -117,6 +117,10 @@
     <div class="header">
         <div class="logo">⚡ Unmissable<span>Deals</span></div>
         <div class="status-badge">Live</div>
+    </div>
+
+    <div class="troubleshoot-link" onclick="document.getElementById('adblock-view').style.display='block'">
+        ⚠️ Not seeing deals? Click here for help.
     </div>
 
     <div class="main-container">
@@ -129,21 +133,21 @@
 
         <div id="adblock-view">
             <div style="font-size: 3rem; margin-bottom: 10px;">🛡️</div>
-            <h2>Deals are Blocked</h2>
-            <p>
-                Your <b>AdGuard DNS</b> or <b>AdBlocker</b> is preventing the deals from loading.
-            </p>
+            <h2>Deals are Hidden</h2>
+            <p>To see the live offers, please pause your AdBlocker or VPN.</p>
             
             <div class="instruction-box">
-                <strong>How to fix:</strong><br>
-                1. Disable <b>AdGuard DNS</b> or VPN momentarily.<br>
-                2. Or check your browser extensions.<br>
+                <strong>Troubleshooting:</strong><br>
+                1. Click your AdBlock icon & select <b>"Pause"</b>.<br>
+                2. If using AdGuard DNS, disable it momentarily.<br>
                 3. Click <b>Reload</b> below.
             </div>
 
             <button onclick="location.reload()" class="btn-reload">
-                🔄 I have fixed it, Reload!
+                🔄 Reload Page
             </button>
+            <br><br>
+            <a href="#" onclick="document.getElementById('adblock-view').style.display='none'" style="color:#999; font-size:0.8rem;">Close this window</a>
         </div>
 
     </div>
@@ -166,32 +170,17 @@
             var iframe = document.getElementById('dealFrame');
             var fallback = document.getElementById('adblock-view');
 
-            function showFallback() {
-                iframe.style.display = 'none';
-                fallback.style.display = 'block';
-            }
-
-            // CHECK 1: Is the iframe hidden by an extension?
+            // Only check for EXTENSIONS that physically hide the iframe.
+            // We removed the DNS Ping check to prevent false positives.
             setTimeout(function() {
                 try {
                     if (iframe.offsetHeight === 0 || window.getComputedStyle(iframe).display === 'none') {
-                        showFallback();
+                        fallback.style.display = 'block';
                     }
-                } catch (e) { showFallback(); }
+                } catch (e) {
+                    console.log("Check failed");
+                }
             }, 1000);
-
-            // CHECK 2: Is the DOMAIN blocked by DNS? (The "Ping Test")
-            // We try to load a harmless icon from inrdeals.com
-            // If it fails (onerror), we know the network is blocked.
-            var ping = new Image();
-            ping.src = "https://inrdeals.com/favicon.ico?" + new Date().getTime();
-            
-            ping.onerror = function() {
-                console.log("DNS Block detected");
-                showFallback();
-            };
-            
-            // If ping loads successfully, we do nothing (let the iframe load)
         };
     </script>
 
