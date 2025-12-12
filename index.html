@@ -47,6 +47,18 @@
         .logo span { color: var(--accent); }
         .status-badge { background: #e8f5e9; color: #2ecc71; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
 
+        /* WARNING BAR (Hidden by default) */
+        #warning-bar {
+            display: none; /* Invisible unless triggered by JS */
+            background: #ffeeba;
+            color: #856404;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-bottom: 1px solid #ffeeba;
+        }
+
         /* MAIN CONTAINER */
         .main-container {
             width: 100%;
@@ -63,8 +75,8 @@
             filter: contrast(102%) saturate(105%);
         }
 
-        /* ADBLOCK MESSAGE CARD (Only for Extensions) */
-        #adblock-view {
+        /* ADBLOCK MODAL (Centered Card) */
+        #adblock-modal {
             display: none;
             position: absolute;
             top: 50%; left: 50%;
@@ -78,7 +90,7 @@
             width: 90%;
             z-index: 50;
         }
-        #adblock-view h2 { margin-top: 0; color: var(--primary); font-size: 1.5rem; }
+        #adblock-modal h2 { margin-top: 0; color: var(--primary); font-size: 1.5rem; }
         
         .instruction-box {
             background: #f1f3f5;
@@ -95,21 +107,17 @@
             border: none; border-radius: 50px; font-weight: 600; cursor: pointer;
         }
 
-        /* SEO CONTENT */
+        /* SEO & FOOTER */
         .seo-content {
             padding: 40px 10%; background: #fff; color: #444; 
             font-size: 0.9rem; line-height: 1.6; border-top: 1px solid #eee;
         }
-
-        /* MANUAL HELP LINK */
-        .troubleshoot-link {
-            text-align: center;
-            padding: 10px;
-            background: #ffeeba;
-            color: #856404;
+        .footer-help {
+            margin-top: 15px;
             font-size: 0.8rem;
-            cursor: pointer;
+            color: #999;
         }
+        .footer-help a { color: #999; text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -119,7 +127,7 @@
         <div class="status-badge">Live</div>
     </div>
 
-    <div class="troubleshoot-link" onclick="document.getElementById('adblock-view').style.display='block'">
+    <div id="warning-bar" onclick="document.getElementById('adblock-modal').style.display='block'">
         ⚠️ Not seeing deals? Click here for help.
     </div>
 
@@ -131,7 +139,7 @@
             allowTransparency='true'>
         </iframe>
 
-        <div id="adblock-view">
+        <div id="adblock-modal">
             <div style="font-size: 3rem; margin-bottom: 10px;">🛡️</div>
             <h2>Deals are Hidden</h2>
             <p>To see the live offers, please pause your AdBlocker or VPN.</p>
@@ -147,7 +155,7 @@
                 🔄 Reload Page
             </button>
             <br><br>
-            <a href="#" onclick="document.getElementById('adblock-view').style.display='none'" style="color:#999; font-size:0.8rem;">Close this window</a>
+            <a href="#" onclick="document.getElementById('adblock-modal').style.display='none'" style="color:#999; font-size:0.8rem;">Close window</a>
         </div>
 
     </div>
@@ -163,24 +171,32 @@
             Stop overpaying and start saving with our curated list of today's best loot deals.
         </p>
         <p>© 2025 Unmissable Deals. All rights reserved.</p>
+        
+        <div class="footer-help">
+            Having trouble viewing deals? <a href="#" onclick="document.getElementById('adblock-modal').style.display='block'; return false;">Click here for help</a>.
+        </div>
     </div>
 
     <script>
         window.onload = function() {
             var iframe = document.getElementById('dealFrame');
-            var fallback = document.getElementById('adblock-view');
+            var modal = document.getElementById('adblock-modal');
+            var warningBar = document.getElementById('warning-bar');
 
-            // Only check for EXTENSIONS that physically hide the iframe.
-            // We removed the DNS Ping check to prevent false positives.
+            // Wait 1.5s to see if the browser hides the iframe
             setTimeout(function() {
                 try {
+                    // Check if iframe height is crushed (Extension Block)
                     if (iframe.offsetHeight === 0 || window.getComputedStyle(iframe).display === 'none') {
-                        fallback.style.display = 'block';
+                        // Logic: Only show warning if BLOCKED
+                        iframe.style.display = 'none';
+                        warningBar.style.display = 'block'; // Show yellow bar
+                        modal.style.display = 'block';      // Show popup
                     }
                 } catch (e) {
                     console.log("Check failed");
                 }
-            }, 1000);
+            }, 1500);
         };
     </script>
 
