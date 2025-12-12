@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="google-site-verification" content="07KGDA7crSkFbxwRaLDsPIsPxGpkivZPP2Gg58dTbic" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Unmissable Deals | Top Offers on Amazon, Flipkart & Myntra</title>
+    <title>Unmissable Deals | Best Offers Daily</title>
     <meta name="description" content="Find the lowest prices and live loot deals on Electronics, Fashion, and Home Essentials. Verified offers from Amazon India, Flipkart, Myntra, and Ajio.">
     <meta name="keywords" content="loot deals, amazon offers, flipkart sale, myntra discount, price drop alert, unmissable deals">
     <meta name="robots" content="index, follow">
@@ -19,18 +20,89 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* ... KEEP YOUR EXISTING CSS HERE ... */
-        :root { --primary: #2c3e50; --accent: #ff9900; --bg-color: #f8f9fa; }
-        body, html { margin:0; padding:0; height:100%; font-family:'Poppins', sans-serif; background:var(--bg-color); overflow-x:hidden;}
-        .header { background:#fff; height:70px; display:flex; align-items:center; justify-content:space-between; padding:0 5%; box-shadow:0 2px 15px rgba(0,0,0,0.05); position:relative; z-index:100; }
-        .logo { font-size:1.4rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:8px; }
-        .logo span { color:var(--accent); }
-        .status-badge { background:#e8f5e9; color:#2ecc71; padding:5px 12px; border-radius:20px; font-size:0.8rem; font-weight:600; }
-        
-        .main-container { width:100%; height:calc(100vh - 70px); position:relative; }
-        iframe { width:100%; height:100%; border:none; display:block; }
+        :root {
+            --primary: #2c3e50;
+            --accent: #ff9900;
+            --bg-color: #f8f9fa;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
 
-        /* SEO CONTENT SECTION (Critical for Google) */
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        .header {
+            background: #ffffff;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 100;
+        }
+        .logo { font-size: 1.4rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--accent); }
+        .status-badge { background: #e8f5e9; color: #2ecc71; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+
+        /* MAIN CONTAINER */
+        .main-container {
+            width: 100%;
+            height: calc(100vh - 70px); /* Fill rest of screen */
+            position: relative;
+            background: #fff;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            /* Filter for cleaner look */
+            filter: contrast(102%) saturate(105%);
+        }
+
+        /* ADBLOCK FALLBACK CARD */
+        #adblock-view {
+            display: none; /* Hidden by default */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            z-index: 50;
+        }
+        #adblock-view h2 { margin-top: 0; color: var(--primary); }
+        #adblock-view p { color: #666; line-height: 1.6; margin-bottom: 25px; }
+
+        .btn-launch {
+            background: linear-gradient(135deg, #ff9900 0%, #ff7700 100%);
+            color: white;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(255, 119, 0, 0.3);
+            transition: transform 0.2s;
+        }
+        .btn-launch:hover { transform: translateY(-2px); }
+
+        /* SEO CONTENT (Visible below fold) */
         .seo-content {
             padding: 40px 10%;
             background: #fff;
@@ -39,7 +111,6 @@
             line-height: 1.6;
             border-top: 1px solid #eee;
         }
-        .seo-content h2 { font-size: 1.2rem; color: #2c3e50; margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -50,21 +121,52 @@
     </div>
 
     <div class="main-container">
-        <iframe id="dealFrame" src='https://inrdeals.com/embed/deals?user=esh416135721' allowTransparency='true'></iframe>
+        
+        <iframe 
+            id="dealFrame"
+            src='https://inrdeals.com/embed/deals?user=esh416135721' 
+            allowTransparency='true'>
+        </iframe>
+
+        <div id="adblock-view">
+            <div style="font-size: 3rem; margin-bottom: 10px;">🛡️</div>
+            <h2>Deals Protected</h2>
+            <p>
+                Your browser is blocking our deal engine.<br>
+                Don't worry, the offers are just one click away!
+            </p>
+            <a href="https://inrdeals.com/embed/deals?user=esh416135721" target="_blank" class="btn-launch">
+                Open Deals Gallery 🚀
+            </a>
+        </div>
+
     </div>
 
     <div class="seo-content">
         <h2>About Unmissable Deals</h2>
-        <p>
-            Welcome to the ultimate destination for smart shoppers in India. We track price drops in real-time across major e-commerce platforms like 
-            <strong>Amazon India</strong>, <strong>Flipkart</strong>, <strong>Myntra</strong>, and <strong>Ajio</strong>.
-        </p>
-        <p>
-            Our automated engine filters through thousands of products to bring you only the highest discounts on smartphones, fashion, laptops, and home appliances. 
-            Stop overpaying and start saving with our curated list of today's best loot deals.
-        </p>
-        <p>© 2025 Unmissable Deals. All rights reserved.</p>
+        <p>Welcome to the ultimate destination for smart shoppers in India. We track price drops in real-time across major e-commerce platforms like Amazon India, Flipkart, Myntra, and Ajio.</p>
+        <p>© 2025 Unmissable Deals.</p>
     </div>
+
+    <script>
+        window.onload = function() {
+            var iframe = document.getElementById('dealFrame');
+            var fallback = document.getElementById('adblock-view');
+
+            // Wait 1.5s then check if iframe loaded
+            setTimeout(function() {
+                try {
+                    // If height is 0 or display is none, it was blocked
+                    if (iframe.offsetHeight === 0 || window.getComputedStyle(iframe).display === 'none') {
+                        throw new Error("Blocked");
+                    }
+                } catch (e) {
+                    iframe.style.display = 'none';
+                    fallback.style.display = 'block';
+                }
+            }, 1500);
+        };
+    </script>
 
 </body>
 </html>
