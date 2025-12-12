@@ -1,469 +1,81 @@
-
-    <!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Deals</title>
-    <meta http-equiv="refresh" content="60">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unmissable Deals & Offers</title>
     <style>
-        body { font-family: system-ui, sans-serif; background: #eee; padding: 10px; }
-        .card { background: white; padding: 15px; margin-bottom: 15px; border-radius: 10px; display: flex; gap: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .thumb img { width: 90px; height: 90px; object-fit: contain; }
-        .info { flex: 1; }
-        .title { font-weight: 600; font-size: 0.9rem; margin-bottom: 5px; }
-        .price { font-size: 1.2rem; font-weight: bold; color: #000; }
-        .mrp { text-decoration: line-through; color: #777; font-size: 0.9rem; }
-        .stats { font-size: 0.75rem; color: #555; background: #f0f0f0; padding: 3px 6px; border-radius: 4px; margin-top: 5px; display: inline-block; }
-        .btn { display: block; background: #333; color: white; text-align: center; padding: 8px; border-radius: 5px; text-decoration: none; margin-top: 10px; font-weight: 600; }
-        .amz { background: #ff9900; } .fk { background: #2874f0; } .myn { background: #ff3f6c; }
-    </style></head><body>
-    <div style="text-align:center; margin-bottom:20px; color:#555;">⚡ Last Update: 23:01</div>
-    
-        <div class="card">
-            <div class="thumb"><img src="https://m.media-amazon.com/images/I/41KyJOvT3FL._SX395_SY395_QL70_ML2_.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Nike Men Running Shoes</div>
-                <div><span class="price">₹2057</span> <span class="mrp">₹569900</span></div>
-                
-                <a href="https://www.amazon.in/dp/B0CT5Z65J3?tag=unmissabled03-21" class="btn amz" target="_blank">Buy on Amazon</a>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            background: #f4f6f8; 
+            margin: 0; 
+            padding: 0; 
+        }
+        .header {
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            color: #333;
+            font-size: 1.8rem;
+        }
+        .header p {
+            margin: 5px 0 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+        .iframe-wrapper {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        iframe {
+            width: 100%;
+            border: none;
+            display: block;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.8rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🔥 Unmissable Deals</h1>
+        <p>Handpicked offers from Amazon, Flipkart, Myntra & more.</p>
+    </div>
+
+    <div class="container">
+        <div class="iframe-wrapper">
+            <iframe 
+                src='https://inrdeals.com/embed/deals?user=esh416135721' 
+                width='100%' 
+                height='1400' 
+                frameborder='0' 
+                allowTransparency='true'>
+            </iframe>
             </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://m.media-amazon.com/images/I/41Cy-N2DeaL._SY300_SX300_QL70_ML2_.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Amazon Brand - Solimo Blue Ceramic Non Stick Induction Base Deep Kadai 24Cm with Glass Lid</div>
-                <div><span class="price">₹688</span> <span class="mrp">₹3499</span></div>
-                
-                <a href="https://www.amazon.in/dp/B0CYH9WX5R?tag=unmissabled03-21" class="btn amz" target="_blank">Buy on Amazon</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://m.media-amazon.com/images/I/31ZrC8+n5JL._SX342_SY445_QL70_ML2_.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Spykar Mid Rise Black Shorts for Women</div>
-                <div><span class="price">₹1379</span> <span class="mrp">₹54900</span></div>
-                
-                <a href="https://www.amazon.in/dp/B0CWPFHW55?tag=unmissabled03-21" class="btn amz" target="_blank">Buy on Amazon</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://m.media-amazon.com/images/I/4174cvzYG5L._SY300_SX300_QL70_ML2_.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">F Gear Touche Navy Canvas 4L Waist Bag</div>
-                <div><span class="price">₹510</span> <span class="mrp">₹289900</span></div>
-                
-                <a href="https://www.amazon.in/dp/B0CNJWT7BQ?tag=unmissabled03-21" class="btn amz" target="_blank">Buy on Amazon</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://m.media-amazon.com/images/I/51AtZlLSQpL._SY300_SX300_QL70_ML2_.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Amazon Brand - Solimo Plastic Storage Jar and Container Set I Air Tight & BPA Free Containers For Kitchen Storage Set I Grocery Kitchen Container Set I Multipurpose Jar, 900 Ml Each, Set 6, Black</div>
-                <div><span class="price">₹277</span> <span class="mrp">₹4629</span></div>
-                
-                <a href="https://www.amazon.in/dp/B0BDRK12JK?tag=unmissabled03-21" class="btn amz" target="_blank">Buy on Amazon</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="http://rukmini1.flixcart.com/image/300/300/xif0q/perfume/z/r/0/30-gentleman-perfume-tux-luxury-gift-set-for-men-long-lasting-original-imahf9eszkjt6d9a.jpeg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Buy BERGAMOT BEAUTE GENTLEMAN Perfume & TUX Luxury Gift Set for Men Long Lasting 2x15 ml Combo Perfume  -  30 ml Online In India | Flipkart.com</div>
-                <div><span class="price">₹179</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.flipkart.com/foxtale-2-salicylic-acid-face-wash-controls-oil-fights-acne-non-drying-wash/p/itm6347af2bd3203%3Fpid%3DPERHEYG97YEEGZYV%26lid%3DLSTFCWHEF53HBG2ZNZM72TBNG%26marketplace%3DFLIPKART%26q%3Dfoxtale%26store%3Dg9b/ema/5la%26srno%3Ds_1_14%26otracker%3Dsearch%26otracker1%3Dsearch%26fm%3DSearch%26iid%3Df46b7a17-0f7e-46fc-81bb-8843013cb1f5.FCWHEF53HBG2ZNZM.SEARCH%26ppt%3Dsp%26ppn%3Dsp%26qH%3D33d6deeac41ce1f2%26affid%3Dgrowthte%26affExtParam1%3DENKR20250907A1591186064%26affExtParam2%3D631129" class="btn fk" target="_blank">Buy on Flipkart</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://m.media-amazon.com/images/I/31x2yL135kL._SX300_SY300_QL70_ML2_.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Amazon Brand - Solimo Borosilicate Glass Mix Bowl (3600 ML) | Transparent</div>
-                <div><span class="price">₹316</span> <span class="mrp">₹1199</span></div>
-                
-                <a href="https://www.amazon.in/dp/B07P8KPQJS?tag=unmissabled03-21" class="btn amz" target="_blank">Buy on Amazon</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://m.media-amazon.com/images/I/31iIvGI-KHL._SY300_SX300_QL70_ML2_.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">POLYCAB Wizzy Neo LED 1200mm 5-Star BLDC, Remote Ceiling fan for Living Room | 8 Purple LED Speed Indicator | High Air Delivery, 25 Speed Control,Free Installation | 4-yr Warranty【White Rose Gold】</div>
-                <div><span class="price">₹2789</span> <span class="mrp">₹7699</span></div>
-                
-                <a href="https://www.amazon.in/dp/B0DRYV8PLY?tag=unmissabled03-21" class="btn amz" target="_blank">Buy on Amazon</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://m.media-amazon.com/images/I/41JozzuF3XL._SY300_SX300_QL70_ML2_.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">TVS XPOD Aerodynamic Helmet for Men-ISI DOT Certified, Ultrawide Visor, Quick Release Strap-Premium Bike Helmet with Enhanced Air Circulation</div>
-                <div><span class="price">₹2799</span> <span class="mrp">₹3499</span></div>
-                
-                <a href="https://www.amazon.in/dp/B08P2X2VKZ?tag=unmissabled03-21" class="btn amz" target="_blank">Buy on Amazon</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Item Store Online - Buy Item Online at Best Price in India | Flipkart.com</div>
-                <div><span class="price">₹319</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.flipkart.com/flipkart/p/item%3Fpid%3DWATFUQEWZYGUZZFE%26lid%3DLSTWATFUQEWZYGUZZFEHUB5KZ%26affid%3Dgrowthte%26affExtParam1%3DENKR20250907A1591186064%26affExtParam2%3D631129" class="btn fk" target="_blank">Buy on Flipkart</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://m.media-amazon.com/images/I/41iiQeW7n2L._SY300_SX300_QL70_ML2_.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">ASUS AP1601 Laptop Bag, 18L Storage capcity Backpack, Suitable for 16-inch Laptop (Grey)</div>
-                <div><span class="price">₹436</span> <span class="mrp">₹1499</span></div>
-                
-                <a href="https://www.amazon.in/dp/B0CRDRHHKR?tag=unmissabled03-21" class="btn amz" target="_blank">Buy on Amazon</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://m.media-amazon.com/images/I/41Fw7LsaPML._SY300_SX300_QL70_ML2_.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">boAt Rockerz 558 Bluetooth Wireless Over Ear Headphones with Mic Upto 20 Hours Playback, 50MM Drivers, Soft Padded Ear Cushions and Physical Noise Isolation(Army Green)</div>
-                <div><span class="price">₹999</span> <span class="mrp">₹4999</span></div>
-                
-                <a href="https://www.amazon.in/dp/B0BVRGZ9FV?tag=unmissabled03-21" class="btn amz" target="_blank">Buy on Amazon</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://m.media-amazon.com/images/I/31EHfUAsPBL._SY300_SX300_QL70_ML2_.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">ATTRO Eiffel Vintage Hammered Finish 1000ml Copper Water Bottle Leak Proof, Joint Less Ayurveda and Yoga Health Benefits - Brown</div>
-                <div><span class="price">₹1299</span> <span class="mrp">₹1599</span></div>
-                
-                <a href="https://www.amazon.in/dp/B09TVZJS9V?tag=unmissabled03-21" class="btn amz" target="_blank">Buy on Amazon</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://constant.myntassets.com/www/data/portal/mlogo.png" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Myntra Deal</div>
-                <div><span class="price">₹0</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.myntra.com/john-players%3FrawQuery%3Djohn%2Bplayers%26rf%3DDiscount%2BRange%253A70.0_100.0_70.0%2BTO%2B100.0%26sort%3Ddiscount" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://constant.myntassets.com/www/data/portal/mlogo.png" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Myntra Deal</div>
-                <div><span class="price">₹0</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.myntra.com/tshirts%3Fexpires%3D1793318991%26f%3DBrand%253AKook%2BN%2BKeech%253A%253AGender%253Amen%26luxuryType%3Dnonluxury%26signature%3DNPg9KMu8Ucly1bZC5xKdRNesOr6Sr6yAqoFrHsCIFdE%26sort%3Ddiscount" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://constant.myntassets.com/www/data/portal/mlogo.png" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Myntra Deal</div>
-                <div><span class="price">₹0</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.myntra.com/clothing%3Fexpires%3D1787660424%26expires%3D1793318991%26f%3DBrand%253ADC%2Bby%2BKook%2BN%2BKeech%252CJohnny%2BBravo%2Bby%2BKook%2BN%2BKeech%252CKook%2BN%2BKeech%252CKook%2BN%2BKeech%2BBatman%252CKook%2BN%2BKeech%2BBatman%2BTeens%252CKook%2BN%2BKeech%2BDisney%252CKook%2BN%2BKeech%2BDisney%2BTeens%252CKook%2BN%2BKeech%2BLooney%2BTunes%252CKook%2BN%2BKeech%2BMarvel%252CKook%2BN%2BKeech%2BRick%2Band%2BMorty%252CKook%2BN%2BKeech%2BStar%2BWars%252CKook%2BN%2BKeech%2BSuperman%252CKook%2BN%2BKeech%2BTeens%252CMinions%2Bby%2BKook%2BN%2BKeech%2BTeens%253A%253AGender%253Amen%2Bwomen%252Cwomen%26rf%3DDiscount%2BRange%253A80.0_100.0_80.0%2BTO%2B100.0%26signature%3DAnZ0alsWawoyPlCokqWUNKwfN6Nt2bn7N804hIvAlmY%26signature%3DQ-Dl53pReFUwfZiUibxZVZRNlhqv1evaNHNg2kXsq0E%26sort%3Ddiscount" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://constant.myntassets.com/www/data/portal/mlogo.png" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Myntra Deal</div>
-                <div><span class="price">₹0</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.myntra.com/wildcraft-trolley-bag%3Frf%3DDiscount%2BRange%253A70.0_100.0_70.0%2BTO%2B100.0%26sort%3Dprice_asc" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://constant.myntassets.com/www/data/portal/mlogo.png" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Myntra Deal</div>
-                <div><span class="price">₹0</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.myntra.com/wildcraft-trolley-bag%3Frf%3DDiscount%2BRange%253A80.0_100.0_80.0%2BTO%2B100.0%26sort%3Dprice_asc" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_75,w_1080/v1/assets/images/34808132/2025/7/11/b5b0da62-aff3-4e06-b4e7-c5c08d70f38e1752222358575-OnePlus-Bullets-Wireless-Z3-10-Mins-Charge-For-27-hrs-Playba-1.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Bullets Wireless Z3 10 Mins Charge For 27 hrs Playback Neck Band OnePlus</div>
-                <div><span class="price">₹1299</span> <span class="mrp">₹1999</span></div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.myntra.com/headphones/oneplus/oneplus-bullets-wireless-z3-10-mins-charge-for-27-hrs-playback-neck-band/34808132" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Item Store Online - Buy Item Online at Best Price in India | Flipkart.com</div>
-                <div><span class="price">₹319</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.flipkart.com/flipkart/p/item%3Fpid%3DWATFUQEWZYGUZZFE%26lid%3DLSTWATFUQEWZYGUZZFEHUB5KZ%26affid%3Drohanpouri%26affExtParam1%3DENKR20251210A1729995084%26affExtParam2%3D4233722" class="btn fk" target="_blank">Buy on Flipkart</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Item Store Online - Buy Item Online at Best Price in India | Flipkart.com</div>
-                <div><span class="price">₹859</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.flipkart.com/flipkart/p/item%3Fpid%3DWATGAXDBQFKXF25P%26lid%3DLSTWATGAXDBQFKXF25P9VS1BB%26affid%3Dgrowthte%26affExtParam1%3DENKR20250907A1591186064%26affExtParam2%3D631129" class="btn fk" target="_blank">Buy on Flipkart</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Item Store Online - Buy Item Online at Best Price in India | Flipkart.com</div>
-                <div><span class="price">₹2138</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.flipkart.com/flipkart/p/item%3Fpid%3DWATG4ZUKF6M2MUFY%26affid%3Dgrowthte%26affExtParam1%3DENKR20250907A1591186064%26affExtParam2%3D631129" class="btn fk" target="_blank">Buy on Flipkart</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="http://rukmini1.flixcart.com/image/300/300/xif0q/hand-messenger-bag/t/z/q/-original-imah87422hbhpyzn.jpeg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Buy Caprese Women Maroon Tote Maroon Online @ Best Price in India | Flipkart.com</div>
-                <div><span class="price">₹644</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.flipkart.com/a/p/itmf752766c05e8f%3Fpid%3DHMBH3VM6T98GQ37D%26lid%3DLSTHMBH3VM6T98GQ37DMXFPPG%26affid%3Dgrowthte%26affExtParam1%3DENKR20250907A1591186064%26affExtParam2%3D631129" class="btn fk" target="_blank">Buy on Flipkart</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="http://rukmini1.flixcart.com/image/300/300/xif0q/watch/s/z/p/-original-imahhx7ggy8ahq8b.jpeg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">TIMEX Pink Dial Analog Watch  - For Women - Buy TIMEX Pink Dial Analog Watch  - For Women TWTL10103 Online at Best Prices in India | Flipkart.com</div>
-                <div><span class="price">₹319</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.flipkart.com/a/p/itm9edc1c0f0408d%3Fpid%3DWATFUQEWZYGUZZFE%26lid%3DLSTWATFUQEWZYGUZZFEHUB5KZ%26affid%3Dgrowthte%26affExtParam1%3DENKR20250907A1591186064%26affExtParam2%3D631129" class="btn fk" target="_blank">Buy on Flipkart</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_75,w_1080/v1/assets/images/2025/NOVEMBER/8/mVybHGpo_157887be1d3644f180942213318d7e5a.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Aloe Vera Daily Cleansing Wipes with Cucumber & Vitamin E - 25 Wipes Lacto Calamine</div>
-                <div><span class="price">₹150</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.myntra.com/s/k/c/31682016%3Fsource%3DDefault%26is_retargeting%3Dtrue%26expires%3D1796951480%26signature%3DsUPs5bLO6-uA1nZ0G-QGNiVACxo1TfeRP58IWERGcZk%26deep_link_value%3Dmyntra%253A%252F%252Fmyntra.com%252F31682016%253Fsource%253DDefault%26c%3Ddw8kmhFjC8z2vLZzVYXfWp_p31695851" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_75,w_1080/v1/assets/images/2025/MAY/30/rfbbY5t6_16838b28fb344e53908114cafa7e1944.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Men Dial & Leather Straps Analogue Watch NN3205TL02 Fastrack</div>
-                <div><span class="price">₹2164</span> <span class="mrp">₹5695</span></div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.myntra.com/watches/fastrack/fastrack-men-dial--leather-straps-analogue-watch-nn3205tl02/34576923" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_75,w_1080/v1/assets/images/24051924/2023/9/20/bd816196-8bb2-43bf-83c4-8b66929d15131695209590001CalvinKleinMenImpressiveStainlessSteelBraceletStyleAnalogueM1.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Men Impressive Stainless Steel Bracelet Style Analogue Multi Watch 25200293 Calvin Klein</div>
-                <div><span class="price">₹4712</span> <span class="mrp">₹14280</span></div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.myntra.com/watches/calvin%2Bklein/calvin-klein-men-impressive-stainless-steel-bracelet-style-analogue-multi-watch-25200293/24051924" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_75,w_1080/v1/assets/images/1445926/2016/8/3/11470208412065-Sonata-Ocean-Series-Men-Green-Digital-Watch-77053PP02-3121470208411439-1.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Ocean Series Men Green Digital Watch 77053PP02 Sonata</div>
-                <div><span class="price">₹808</span> <span class="mrp">₹2449</span></div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.myntra.com/watches/sonata/sonata-ocean-series-men-green-digital-watch-77053pp02/1445926" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_75,w_1080/v1/assets/images/26435472/2024/1/23/a2c566e9-24b0-4b22-bb30-2c1b985bc5061706003474104MVMTOdysseyIiAnalogBlueTonneauDialMensWatch-28000356-D1.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Men Odyssey II Analogue Watch 28000356 MVMT</div>
-                <div><span class="price">₹4896</span> <span class="mrp">₹15795</span></div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.myntra.com/watches/mvmt/mvmt-men-odyssey-ii-analogue-watch-28000356/26435472" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_75,w_1080/v1/assets/images/30581624/2024/9/19/6faa1006-62d7-4822-b769-9ceaeb3c9c2c1726723419186-Olivia-Burton-Grosvenor-Qtz-Basic-Slim-Blush-Sunray-Square-D-1.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Women Embellished Grosvenor Bracelet Style Square Dial Watch - 24000085 Olivia Burton</div>
-                <div><span class="price">₹3640</span> <span class="mrp">₹11375</span></div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.myntra.com/watches/olivia%2Bburton/olivia-burton-women-embellished-grosvenor-bracelet-style-square-dial-watch---24000085/30581624" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_75,w_1080/v1/assets/images/24051740/2023/10/6/ca9050cf-0c73-4371-ba11-252273aa1c3e1696592385705-Hugo-Boss--Solgrade-Analog-Black-Sunray-Round-Dial-Mens-Watc-1.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Men Solgrade Analogue Watch 1514032 Hugo Boss</div>
-                <div><span class="price">₹9219</span> <span class="mrp">₹32925</span></div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.myntra.com/watches/hugo%2Bboss/hugo-boss-men-solgrade-analogue-watch-1514032/24051740" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_75,w_1080/v1/assets/images/24051740/2023/10/6/ca9050cf-0c73-4371-ba11-252273aa1c3e1696592385705-Hugo-Boss--Solgrade-Analog-Black-Sunray-Round-Dial-Mens-Watc-1.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Men Solgrade Analogue Watch 1514032 Hugo Boss</div>
-                <div><span class="price">₹9219</span> <span class="mrp">₹32925</span></div>
-                
-                <a href="https://inrdeals.com/link?id=esh416135721&url=https%3A//www.myntra.com/watches/hugo%2Bboss/hugo-boss-men-solgrade-analogue-watch-1514032/24051740/buy" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_75,w_1080/v1/assets/images/1445926/2016/8/3/11470208412065-Sonata-Ocean-Series-Men-Green-Digital-Watch-77053PP02-3121470208411439-1.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Ocean Series Men Green Digital Watch 77053PP02 Sonata</div>
-                <div><span class="price">₹808</span> <span class="mrp">₹2449</span></div>
-                
-                <a href="https://inrdeals.com/link?id=esh416135721&url=https%3A//www.myntra.com/watches/sonata/sonata-ocean-series-men-green-digital-watch-77053pp02/1445926/buy" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_75,w_1080/v1/assets/images/24051924/2023/9/20/bd816196-8bb2-43bf-83c4-8b66929d15131695209590001CalvinKleinMenImpressiveStainlessSteelBraceletStyleAnalogueM1.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Men Impressive Stainless Steel Bracelet Style Analogue Multi Watch 25200293 Calvin Klein</div>
-                <div><span class="price">₹4712</span> <span class="mrp">₹14280</span></div>
-                
-                <a href="https://inrdeals.com/link?id=esh416135721&url=https%3A//www.myntra.com/watches/calvin%2Bklein/calvin-klein-men-impressive-stainless-steel-bracelet-style-analogue-multi-watch-25200293/24051924/buy" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_75,w_1080/v1/assets/images/30581624/2024/9/19/6faa1006-62d7-4822-b769-9ceaeb3c9c2c1726723419186-Olivia-Burton-Grosvenor-Qtz-Basic-Slim-Blush-Sunray-Square-D-1.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Women Embellished Grosvenor Bracelet Style Square Dial Watch - 24000085 Olivia Burton</div>
-                <div><span class="price">₹3640</span> <span class="mrp">₹11375</span></div>
-                
-                <a href="https://inrdeals.com/link?id=esh416135721&url=https%3A//www.myntra.com/watches/olivia%2Bburton/olivia-burton-women-embellished-grosvenor-bracelet-style-square-dial-watch---24000085/30581624/buy" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_75,w_1080/v1/assets/images/2025/MAY/30/rfbbY5t6_16838b28fb344e53908114cafa7e1944.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Men Dial & Leather Straps Analogue Watch NN3205TL02 Fastrack</div>
-                <div><span class="price">₹2164</span> <span class="mrp">₹5695</span></div>
-                
-                <a href="https://inrdeals.com/link?id=esh416135721&url=https%3A//www.myntra.com/watches/fastrack/fastrack-men-dial--leather-straps-analogue-watch-nn3205tl02/34576923/buy" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_75,w_1080/v1/assets/images/26435472/2024/1/23/a2c566e9-24b0-4b22-bb30-2c1b985bc5061706003474104MVMTOdysseyIiAnalogBlueTonneauDialMensWatch-28000356-D1.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Men Odyssey II Analogue Watch 28000356 MVMT</div>
-                <div><span class="price">₹4896</span> <span class="mrp">₹15795</span></div>
-                
-                <a href="https://inrdeals.com/link?id=esh416135721&url=https%3A//www.myntra.com/watches/mvmt/mvmt-men-odyssey-ii-analogue-watch-28000356/26435472/buy" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Item Store Online - Buy Item Online at Best Price in India | Flipkart.com</div>
-                <div><span class="price">₹2138</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.flipkart.com/flipkart/p/item" class="btn fk" target="_blank">Buy on Flipkart</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="http://rukmini1.flixcart.com/image/300/300/xif0q/hand-messenger-bag/t/z/q/-original-imah87422hbhpyzn.jpeg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Buy Caprese Women Maroon Tote Maroon Online @ Best Price in India | Flipkart.com</div>
-                <div><span class="price">₹644</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.flipkart.com/a/p/itmf752766c05e8f" class="btn fk" target="_blank">Buy on Flipkart</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="http://rukmini1.flixcart.com/image/300/300/xif0q/watch/s/z/p/-original-imahhx7ggy8ahq8b.jpeg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">TIMEX Pink Dial Analog Watch  - For Women - Buy TIMEX Pink Dial Analog Watch  - For Women TWTL10103 Online at Best Prices in India | Flipkart.com</div>
-                <div><span class="price">₹319</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.flipkart.com/a/p/itm9edc1c0f0408d" class="btn fk" target="_blank">Buy on Flipkart</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/2025/NOVEMBER/8/mVybHGpo_157887be1d3644f180942213318d7e5a.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Aloe Vera Daily Cleansing Wipes with Cucumber & Vitamin E - 25 Wipes Lacto Calamine</div>
-                <div><span class="price">₹150</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.myntra.com/s/k/c/31682016/buy" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/32413157/2025/7/24/99e9be68-a686-4d2f-9df5-6d382b96e62e1753364760974-Fossil-Men-Sullivan-Multi-Function-Analogue-Watch-BQ2857I-37-1.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Men Sullivan Multi Function Analogue Watch BQ2857I Fossil</div>
-                <div><span class="price">₹4873</span> <span class="mrp">₹12495</span></div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.myntra.com/watches/fossil/fossil-men-sullivan-multi-function-analogue-watch-bq2857i/32413157/buy" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/416049/2019/10/23/b70ca2af-5e0b-457e-a65c-70f1ee98a7941571829338530-Fossil-Men-Watches-4721571829337309-1.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Men Black Analogue Watch JR1353 Fossil</div>
-                <div><span class="price">₹6398</span> <span class="mrp">₹15995</span></div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.myntra.com/watches/fossil/fossil-men-black-analogue-watch-jr1353/416049/buy" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://constant.myntassets.com/www/data/portal/mlogo.png" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Myntra - Buy Myntra online in India</div>
-                <div><span class="price">₹2600</span> </div>
-                
-                <a href="https://inrdeals.com/esh416135721/https%3A//www.myntra.com/myntra" class="btn myn" target="_blank">Buy on Myntra</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://m.media-amazon.com/images/I/31zahzSHTtL._SY300_SX300_QL70_ML2_.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Garnier Skin Naturals, Facewash, Cleansing and Brightening, Bright Complete, 100 g</div>
-                <div><span class="price">₹121</span> <span class="mrp">₹12100</span></div>
-                
-                <a href="https://www.amazon.in/dp/B006LX9K92?tag=unmissabled03-21" class="btn amz" target="_blank">Buy on Amazon</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://m.media-amazon.com/images/I/41eiYkodiFL._SX300_SY300_QL70_ML2_.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Havells 9W LED Bulb for Home & Office |B22 LED Bulb Base |Cool Day White Light (6500K/4000k/3000k) |4Kv Surge Protection |High Voltage Protection |Eco Friendly Energy Efficient | Pack of 6</div>
-                <div><span class="price">₹319</span> <span class="mrp">₹5317</span></div>
-                
-                <a href="https://www.amazon.in/dp/B0DWX9VYXC?tag=unmissabled03-21" class="btn amz" target="_blank">Buy on Amazon</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://m.media-amazon.com/images/I/21LbVFPJJhL._SY300_SX300_QL70_ML2_.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Goldmedal Tizio 25 Liters Storage Water Heater (Geyser) With Titanium Glassline Coated Tank | BEE 5 Star Rating | Preset Thermal Cutout | Temperature Control Knob | 4 in 1 Safety Valve | (WHITE)</div>
-                <div><span class="price">₹6178</span> <span class="mrp">₹13270</span></div>
-                
-                <a href="https://www.amazon.in/dp/B0CQYJY7ZM?tag=unmissabled03-21" class="btn amz" target="_blank">Buy on Amazon</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://m.media-amazon.com/images/I/414l07ZXtwL._SY300_SX300_QL70_ML2_.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Fastrack Trendies Analog Black Dial Men's Watch-38058PP03/NP38058PP03</div>
-                <div><span class="price">₹1097</span> <span class="mrp">₹1995</span></div>
-                
-                <a href="https://www.amazon.in/dp/B08K9946WZ?tag=unmissabled03-21" class="btn amz" target="_blank">Buy on Amazon</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://m.media-amazon.com/images/I/4175fcOI8oL._SY300_SX300_QL70_ML2_.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">P.C Chandra Jewellers 24kt (995) Yellow Gold Coin Cum Pendant - 1.5 Gram</div>
-                <div><span class="price">₹28557</span> <span class="mrp">₹1586400</span></div>
-                
-                <a href="https://www.amazon.in/dp/B0FGJNTQDR?tag=unmissabled03-21" class="btn amz" target="_blank">Buy on Amazon</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="thumb"><img src="https://m.media-amazon.com/images/I/418JtCS7bzL._SY300_SX300_QL70_ML2_.jpg" onerror="this.src='https://via.placeholder.com/100?text=No+Img'"></div>
-            <div class="info">
-                <div class="title">Muthoot Pappachan Swarnavarsham 24K (999) Yellow Gold Oval Ganesha Pendant 2 Gram</div>
-                <div><span class="price">₹28557</span> <span class="mrp">₹30000</span></div>
-                
-                <a href="https://www.amazon.in/dp/B0D2J9GX3J?tag=unmissabled03-21" class="btn amz" target="_blank">Buy on Amazon</a>
-            </div>
-        </div></body></html>
+    </div>
+
+    <div class="footer">
+        Prices and availability are subject to change. <br>
+        © 2025 Unmissable Deals
+    </div>
+
+</body>
+</html>
