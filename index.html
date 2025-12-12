@@ -10,8 +10,6 @@
     <meta name="description" content="Find the lowest prices and live loot deals on Electronics, Fashion, and Home Essentials. Verified offers from Amazon India, Flipkart, Myntra, and Ajio.">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Unmissable Deals - Live Loot Alerts">
-    <meta property="og:description" content="Don't miss the biggest price drops of the day. Check now!">
-    <meta property="og:type" content="website">
     <meta property="og:url" content="https://unmissabledeals.store">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,7 +50,7 @@
         /* MAIN CONTAINER */
         .main-container {
             width: 100%;
-            height: calc(100vh - 70px); /* Fill rest of screen */
+            height: calc(100vh - 70px);
             position: relative;
             background: #fff;
         }
@@ -107,16 +105,11 @@
         }
         .btn-reload:hover { background: #1a252f; }
 
-        /* SEO CONTENT (Visible below fold) */
+        /* SEO CONTENT */
         .seo-content {
-            padding: 40px 10%;
-            background: #fff;
-            color: #444;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            border-top: 1px solid #eee;
+            padding: 40px 10%; background: #fff; color: #444; 
+            font-size: 0.9rem; line-height: 1.6; border-top: 1px solid #eee;
         }
-        .seo-content h2 { font-size: 1.2rem; color: #2c3e50; margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -136,20 +129,20 @@
 
         <div id="adblock-view">
             <div style="font-size: 3rem; margin-bottom: 10px;">🛡️</div>
-            <h2>Deals are Hidden</h2>
+            <h2>Deals are Blocked</h2>
             <p>
-                To see the live offers, you need to allow this site in your Ad Blocker. We only show deals, no spam ads.
+                Your <b>AdGuard DNS</b> or <b>AdBlocker</b> is preventing the deals from loading.
             </p>
             
             <div class="instruction-box">
                 <strong>How to fix:</strong><br>
-                1. Click your AdBlock icon (🧩)<br>
-                2. Select <b>"Pause on this site"</b><br>
-                3. Click <b>Reload</b> below
+                1. Disable <b>AdGuard DNS</b> or VPN momentarily.<br>
+                2. Or check your browser extensions.<br>
+                3. Click <b>Reload</b> below.
             </div>
 
             <button onclick="location.reload()" class="btn-reload">
-                🔄 I have disabled it, Reload!
+                🔄 I have fixed it, Reload!
             </button>
         </div>
 
@@ -173,18 +166,32 @@
             var iframe = document.getElementById('dealFrame');
             var fallback = document.getElementById('adblock-view');
 
-            // Wait 1.5s then check if iframe loaded
+            function showFallback() {
+                iframe.style.display = 'none';
+                fallback.style.display = 'block';
+            }
+
+            // CHECK 1: Is the iframe hidden by an extension?
             setTimeout(function() {
                 try {
-                    // If height is 0 or display is none, it was blocked
                     if (iframe.offsetHeight === 0 || window.getComputedStyle(iframe).display === 'none') {
-                        throw new Error("Blocked");
+                        showFallback();
                     }
-                } catch (e) {
-                    iframe.style.display = 'none';
-                    fallback.style.display = 'block';
-                }
-            }, 1500);
+                } catch (e) { showFallback(); }
+            }, 1000);
+
+            // CHECK 2: Is the DOMAIN blocked by DNS? (The "Ping Test")
+            // We try to load a harmless icon from inrdeals.com
+            // If it fails (onerror), we know the network is blocked.
+            var ping = new Image();
+            ping.src = "https://inrdeals.com/favicon.ico?" + new Date().getTime();
+            
+            ping.onerror = function() {
+                console.log("DNS Block detected");
+                showFallback();
+            };
+            
+            // If ping loads successfully, we do nothing (let the iframe load)
         };
     </script>
 
