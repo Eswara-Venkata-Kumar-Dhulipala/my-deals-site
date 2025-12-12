@@ -3,182 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unmissable Deals | Best Offers Daily</title>
     
+    <title>Unmissable Deals | Top Offers on Amazon, Flipkart & Myntra</title>
+    <meta name="description" content="Find the lowest prices and live loot deals on Electronics, Fashion, and Home Essentials. Verified offers from Amazon India, Flipkart, Myntra, and Ajio.">
+    <meta name="keywords" content="loot deals, amazon offers, flipkart sale, myntra discount, price drop alert, unmissable deals">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Unmissable Deals - Live Loot Alerts">
+    <meta property="og:description" content="Don't miss the biggest price drops of the day. Check now!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://unmissabledeals.store">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --primary: #2c3e50;       /* Deep Blue/Gray */
-            --accent: #ff9900;        /* Amazon/Deal Orange */
-            --bg-color: #f8f9fa;      /* Clean Off-White */
-            --text-dark: #1a1a1a;
-            --text-light: #666;
-            --shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            height: 100%; 
-            font-family: 'Poppins', sans-serif; /* Modern Font */
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            overflow: hidden; /* Lock scroll to iframe only */
-        }
-
-        /* --- HEADER DESIGN --- */
-        .header {
-            background: #ffffff;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5%;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            position: relative;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        /* ... KEEP YOUR EXISTING CSS HERE ... */
+        :root { --primary: #2c3e50; --accent: #ff9900; --bg-color: #f8f9fa; }
+        body, html { margin:0; padding:0; height:100%; font-family:'Poppins', sans-serif; background:var(--bg-color); overflow-x:hidden;}
+        .header { background:#fff; height:70px; display:flex; align-items:center; justify-content:space-between; padding:0 5%; box-shadow:0 2px 15px rgba(0,0,0,0.05); position:relative; z-index:100; }
+        .logo { font-size:1.4rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:8px; }
+        .logo span { color:var(--accent); }
+        .status-badge { background:#e8f5e9; color:#2ecc71; padding:5px 12px; border-radius:20px; font-size:0.8rem; font-weight:600; }
         
-        .logo span { color: var(--accent); }
+        .main-container { width:100%; height:calc(100vh - 70px); position:relative; }
+        iframe { width:100%; height:100%; border:none; display:block; }
 
-        .status-badge {
-            background: #e8f5e9;
-            color: #2ecc71;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .dot { width: 8px; height: 8px; background: #2ecc71; border-radius: 50%; }
-
-        /* --- MAIN CONTAINER --- */
-        .main-container {
-            width: 100%;
-            height: calc(100vh - 70px); /* Fill rest of screen */
-            position: relative;
+        /* SEO CONTENT SECTION (Critical for Google) */
+        .seo-content {
+            padding: 40px 10%;
             background: #fff;
+            color: #444;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            border-top: 1px solid #eee;
         }
-
-        /* --- IFRAME STYLING --- */
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-            transition: opacity 0.5s ease;
-        }
-
-        /* --- ADBLOCK FALLBACK CARD (Modern UI) --- */
-        #adblock-view {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-
-        #adblock-view h2 { margin-top: 0; color: var(--primary); }
-        #adblock-view p { color: var(--text-light); line-height: 1.6; margin-bottom: 25px; }
-
-        .btn-launch {
-            background: linear-gradient(135deg, #ff9900 0%, #ff7700 100%);
-            color: white;
-            padding: 14px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(255, 119, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .btn-launch:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 119, 0, 0.4);
-        }
-
-        /* Mobile Tweaks */
-        @media (max-width: 600px) {
-            .header { padding: 0 15px; height: 60px; }
-            .logo { font-size: 1.2rem; }
-            .status-badge span { display: none; } /* Hide text on small screens */
-            .main-container { height: calc(100vh - 60px); }
-        }
+        .seo-content h2 { font-size: 1.2rem; color: #2c3e50; margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
     <div class="header">
         <div class="logo">⚡ Unmissable<span>Deals</span></div>
-        <div class="status-badge">
-            <div class="dot"></div> <span>Live Updates</span>
-        </div>
+        <div class="status-badge">Live</div>
     </div>
 
     <div class="main-container">
-        
-        <iframe 
-            id="dealFrame"
-            src='https://inrdeals.com/embed/deals?user=esh416135721' 
-            allowTransparency='true'>
-        </iframe>
-
-        <div id="adblock-view">
-            <div style="font-size: 3rem; margin-bottom: 10px;">🛡️</div>
-            <h2>Deals Protected</h2>
-            <p>
-                Your browser is blocking our deal engine.<br>
-                Don't worry, the offers are just one click away!
-            </p>
-            <a href="https://inrdeals.com/embed/deals?user=esh416135721" target="_blank" class="btn-launch">
-                Open Deals Gallery 🚀
-            </a>
-        </div>
-
+        <iframe id="dealFrame" src='https://inrdeals.com/embed/deals?user=esh416135721' allowTransparency='true'></iframe>
     </div>
 
-    <script>
-        window.onload = function() {
-            var iframe = document.getElementById('dealFrame');
-            var fallback = document.getElementById('adblock-view');
-
-            // 1.5 Second Check for AdBlock
-            setTimeout(function() {
-                try {
-                    // If iframe is hidden or height is 0, assume blocked
-                    if (iframe.offsetHeight === 0 || window.getComputedStyle(iframe).display === 'none') {
-                        throw new Error("Blocked");
-                    }
-                } catch (e) {
-                    iframe.style.display = 'none';
-                    fallback.style.display = 'block';
-                }
-            }, 1500);
-        };
-    </script>
+    <div class="seo-content">
+        <h2>About Unmissable Deals</h2>
+        <p>
+            Welcome to the ultimate destination for smart shoppers in India. We track price drops in real-time across major e-commerce platforms like 
+            <strong>Amazon India</strong>, <strong>Flipkart</strong>, <strong>Myntra</strong>, and <strong>Ajio</strong>.
+        </p>
+        <p>
+            Our automated engine filters through thousands of products to bring you only the highest discounts on smartphones, fashion, laptops, and home appliances. 
+            Stop overpaying and start saving with our curated list of today's best loot deals.
+        </p>
+        <p>© 2025 Unmissable Deals. All rights reserved.</p>
+    </div>
 
 </body>
 </html>
