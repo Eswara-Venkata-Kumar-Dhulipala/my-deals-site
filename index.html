@@ -4,45 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unmissable Deals</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6f8; margin: 0; padding: 20px; }
+        h1 { text-align: center; color: #333; margin-bottom: 30px; }
+        #deals-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .deal-card { 
+            background: white; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .deal-card:hover { transform: translateY(-5px); }
+        .deal-img-container {
+            width: 100%;
+            height: 200px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #eee;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .deal-img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .deal-content { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .deal-desc { font-size: 14px; color: #444; line-height: 1.5; margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .deal-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+        .deal-price { font-size: 18px; font-weight: bold; color: #2196F3; }
+        .deal-btn { background: #ff5722; color: white; padding: 8px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; }
+        .deal-date { font-size: 11px; color: #999; text-align: right; margin-top: 5px; }
+    </style>
 </head>
 <body>
-    <h1 style="text-align: center; font-family: sans-serif;">🔥 Live Deals</h1>
-    
-    <div id="deals-container" style="max-width: 800px; margin: 0 auto; font-family: sans-serif;">
-        <p style="text-align:center; color: #888;">Loading deals...</p>
+    <h1>🔥 Live Deals</h1>
+    <div id="deals-container">
+        <p style="text-align:center; width:100%;">Loading deals...</p>
     </div>
 
     <script>
         async function loadDeals() {
             try {
-                // Fetch with timestamp to prevent caching
+                // Fetch with timestamp to avoid cache
                 const response = await fetch('deals.json?t=' + new Date().getTime());
                 const deals = await response.json();
                 const container = document.getElementById('deals-container');
-                
                 container.innerHTML = ''; 
 
-                // Show newest deals first
                 deals.slice().reverse().forEach(deal => {
                     const card = document.createElement('div');
-                    card.style = "border: 1px solid #eee; padding: 20px; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); background: #fff;";
+                    card.className = 'deal-card';
                     
-                    // Format description line breaks
-                    const descHtml = deal.description.replace(/\n/g, '<br>');
+                    // Fallback image if none provided
+                    const imgUrl = deal.image || 'https://via.placeholder.com/300x200?text=No+Image';
+                    const priceDisplay = deal.price || 'Check Price';
+
+                    // Format description (keep it short)
+                    let cleanDesc = deal.description.replace(/(https?:\/\/[^\s]+)/g, ''); // Remove links from text
+                    cleanDesc = cleanDesc.substring(0, 150) + (cleanDesc.length > 150 ? '...' : '');
 
                     card.innerHTML = `
-                        <div style="color: #444; font-size: 16px; line-height: 1.6;">${descHtml}</div>
-                        <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
-                            <span style="color: #999; font-size: 12px;">${deal.date}</span>
-                            <a href="${deal.link}" target="_blank" style="background: #ff5722; color: white; padding: 10px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 14px;">
-                                GET DEAL ➜
-                            </a>
+                        <div class="deal-img-container">
+                            <img src="${imgUrl}" alt="Deal Image" class="deal-img" onerror="this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                        </div>
+                        <div class="deal-content">
+                            <div class="deal-desc">${cleanDesc}</div>
+                            <div class="deal-footer">
+                                <div class="deal-price">${priceDisplay}</div>
+                                <a href="${deal.link}" target="_blank" class="deal-btn">GRAB IT</a>
+                            </div>
+                            <div class="deal-date">${deal.date}</div>
                         </div>
                     `;
                     container.appendChild(card);
                 });
             } catch (e) {
                 console.error("Error loading deals:", e);
+                document.getElementById('deals-container').innerHTML = '<p style="text-align:center;">Failed to load deals.</p>';
             }
         }
         loadDeals();
