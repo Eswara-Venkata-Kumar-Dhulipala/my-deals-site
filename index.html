@@ -3,201 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unmissable Deals | Best Offers Daily</title>
-    
-    <meta name="google-site-verification" content="07KGDA7crSkFbxwRaLDsPIsPxGpkivZPP2Gg58dTbic" />
-
-    <meta name="description" content="Find the lowest prices and live loot deals on Electronics, Fashion, and Home Essentials. Verified offers from Amazon India, Flipkart, Myntra, and Ajio.">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Unmissable Deals - Live Loot Alerts">
-    <meta property="og:url" content="https://unmissabledeals.store">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --accent: #ff9900;
-            --bg-color: #f8f9fa;
-            --shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        body, html { 
-            margin: 0; padding: 0; height: 100%; 
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        /* HEADER */
-        .header {
-            background: #ffffff;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5%;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            position: relative;
-            z-index: 100;
-        }
-        .logo { font-size: 1.4rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 8px; }
-        .logo span { color: var(--accent); }
-        .status-badge { background: #e8f5e9; color: #2ecc71; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
-
-        /* WARNING BAR (Hidden by default) */
-        #warning-bar {
-            display: none; 
-            background: #ffeeba;
-            color: #856404;
-            text-align: center;
-            padding: 10px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            border-bottom: 1px solid #ffdf7e;
-        }
-
-        /* MAIN CONTAINER */
-        .main-container {
-            width: 100%;
-            height: calc(100vh - 70px);
-            position: relative;
-            background: #fff;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-            filter: contrast(102%) saturate(105%);
-        }
-
-        /* ADBLOCK MODAL (Centered Card) */
-        #adblock-modal {
-            display: none;
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            text-align: center;
-            max-width: 450px;
-            width: 90%;
-            z-index: 50;
-        }
-        #adblock-modal h2 { margin-top: 0; color: var(--primary); font-size: 1.5rem; }
-        
-        .instruction-box {
-            background: #f1f3f5;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: left;
-            font-size: 0.9rem;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .btn-reload {
-            background: var(--primary); color: white; padding: 12px 30px;
-            border: none; border-radius: 50px; font-weight: 600; cursor: pointer;
-        }
-
-        /* SEO & FOOTER */
-        .seo-content {
-            padding: 40px 10%; background: #fff; color: #444; 
-            font-size: 0.9rem; line-height: 1.6; border-top: 1px solid #eee;
-        }
-        .footer-help {
-            margin-top: 15px;
-            font-size: 0.8rem;
-            color: #999;
-        }
-        .footer-help a { color: #999; text-decoration: underline; }
-    </style>
+    <title>Unmissable Deals</title>
 </head>
 <body>
-
-    <div class="header">
-        <div class="logo">⚡ Unmissable<span>Deals</span></div>
-        <div class="status-badge">Live</div>
-    </div>
-
-    <div id="warning-bar" onclick="document.getElementById('adblock-modal').style.display='block'">
-        ⚠️ Not seeing deals? <b>Click here for help.</b>
-    </div>
-
-    <div class="main-container">
-        
-        <iframe 
-            id="dealFrame"
-            src='https://inrdeals.com/embed/deals?user=esh416135721' 
-            allowTransparency='true'>
-        </iframe>
-
-        <div id="adblock-modal">
-            <div style="font-size: 3rem; margin-bottom: 10px;">🛡️</div>
-            <h2>Deals are Hidden</h2>
-            <p>To see the live offers, please pause your AdBlocker or VPN.</p>
-            
-            <div class="instruction-box">
-                <strong>Troubleshooting:</strong><br>
-                1. Click your AdBlock icon & select <b>"Pause"</b>.<br>
-                2. If using AdGuard DNS, disable it momentarily.<br>
-                3. Click <b>Reload</b> below.
-            </div>
-
-            <button onclick="location.reload()" class="btn-reload">
-                🔄 Reload Page
-            </button>
-            <br><br>
-            <a href="#" onclick="document.getElementById('adblock-modal').style.display='none'" style="color:#999; font-size:0.8rem;">Close window</a>
-        </div>
-
-    </div>
-
-    <div class="seo-content">
-        <h2>About Unmissable Deals</h2>
-        <p>
-            Welcome to the ultimate destination for smart shoppers in India. We track price drops in real-time across major e-commerce platforms like 
-            <strong>Amazon India</strong>, <strong>Flipkart</strong>, <strong>Myntra</strong>, and <strong>Ajio</strong>.
-        </p>
-        <p>
-            Our automated engine filters through thousands of products to bring you only the highest discounts on smartphones, fashion, laptops, and home appliances. 
-            Stop overpaying and start saving with our curated list of today's best loot deals.
-        </p>
-        <p>© 2025 Unmissable Deals. All rights reserved.</p>
-        
-        <div class="footer-help">
-            Having trouble viewing deals? <a href="#" onclick="document.getElementById('adblock-modal').style.display='block'; return false;">Click here for help</a>.
-        </div>
+    <h1 style="text-align: center; font-family: sans-serif;">🔥 Live Deals</h1>
+    
+    <div id="deals-container" style="max-width: 800px; margin: 0 auto; font-family: sans-serif;">
+        <p style="text-align:center; color: #888;">Loading deals...</p>
     </div>
 
     <script>
-        window.onload = function() {
-            var iframe = document.getElementById('dealFrame');
-            var modal = document.getElementById('adblock-modal');
-            var warningBar = document.getElementById('warning-bar');
+        async function loadDeals() {
+            try {
+                // Fetch with timestamp to prevent caching
+                const response = await fetch('deals.json?t=' + new Date().getTime());
+                const deals = await response.json();
+                const container = document.getElementById('deals-container');
+                
+                container.innerHTML = ''; 
 
-            // Wait 2s to ensure loading is real
-            setTimeout(function() {
-                try {
-                    // Check if iframe height is crushed (Extension Block)
-                    if (iframe.offsetHeight === 0 || window.getComputedStyle(iframe).display === 'none') {
-                        // FIX: Only show Yellow Bar. DO NOT open modal.
-                        iframe.style.display = 'none';
-                        warningBar.style.display = 'block'; 
-                    }
-                } catch (e) {
-                    console.log("Check failed");
-                }
-            }, 2000);
-        };
+                // Show newest deals first
+                deals.slice().reverse().forEach(deal => {
+                    const card = document.createElement('div');
+                    card.style = "border: 1px solid #eee; padding: 20px; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); background: #fff;";
+                    
+                    // Format description line breaks
+                    const descHtml = deal.description.replace(/\n/g, '<br>');
+
+                    card.innerHTML = `
+                        <div style="color: #444; font-size: 16px; line-height: 1.6;">${descHtml}</div>
+                        <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="color: #999; font-size: 12px;">${deal.date}</span>
+                            <a href="${deal.link}" target="_blank" style="background: #ff5722; color: white; padding: 10px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 14px;">
+                                GET DEAL ➜
+                            </a>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (e) {
+                console.error("Error loading deals:", e);
+            }
+        }
+        loadDeals();
     </script>
-
 </body>
 </html>
