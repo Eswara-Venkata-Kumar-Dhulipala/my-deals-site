@@ -5,87 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unmissable Deals</title>
     <style>
+        /* Same CSS as before, just ensuring price is robust */
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6f8; margin: 0; padding: 20px; }
         h1 { text-align: center; color: #333; margin-bottom: 30px; }
-        
-        #deals-container { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-            gap: 20px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-        }
-
-        .deal-card { 
-            background: white; 
-            border-radius: 12px; 
-            overflow: hidden; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
-            transition: transform 0.2s;
-            display: flex;
-            flex-direction: column;
-            /* FIX: Prevents flickering/jitter during rendering */
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-        }
-
+        #deals-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .deal-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s; display: flex; flex-direction: column; transform: translateZ(0); backface-visibility: hidden; }
         .deal-card:hover { transform: translateY(-5px); }
-
-        .deal-img-container {
-            width: 100%;
-            height: 200px;
-            background: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid #eee;
-            padding: 10px;
-            box-sizing: border-box;
-            position: relative; /* Stability */
-        }
-
-        .deal-img { 
-            max-width: 100%; 
-            max-height: 100%; 
-            object-fit: contain; 
-            display: block; /* Removes bottom spacing */
-        }
-
+        .deal-img-container { width: 100%; height: 200px; background: #fff; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #eee; padding: 10px; box-sizing: border-box; }
+        .deal-img { max-width: 100%; max-height: 100%; object-fit: contain; }
         .deal-content { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        
-        .deal-desc { 
-            font-size: 14px; 
-            color: #444; 
-            line-height: 1.5; 
-            margin-bottom: 15px; 
-            /* Clean truncation */
-            display: -webkit-box; 
-            -webkit-line-clamp: 3; 
-            -webkit-box-orient: vertical; 
-            overflow: hidden; 
-        }
-
+        .deal-desc { font-size: 14px; color: #444; line-height: 1.5; margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
         .deal-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
-        
-        .deal-price { 
-            font-size: 18px; 
-            font-weight: 800; 
-            color: #27ae60; 
-        }
-
-        .deal-btn { 
-            background: #ff5722; 
-            color: white; 
-            padding: 8px 16px; 
-            text-decoration: none; 
-            border-radius: 6px; 
-            font-weight: bold; 
-            font-size: 14px; 
-            transition: background 0.2s;
-        }
-        .deal-btn:hover { background: #e64a19; }
-
+        .deal-price { font-size: 18px; font-weight: 800; color: #27ae60; }
+        .deal-btn { background: #ff5722; color: white; padding: 8px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; }
         .deal-date { font-size: 11px; color: #999; text-align: right; margin-top: 5px; }
     </style>
 </head>
@@ -98,7 +30,6 @@
     <script>
         async function loadDeals() {
             try {
-                // Fetch with timestamp to avoid cache
                 const response = await fetch('deals.json?t=' + new Date().getTime());
                 const deals = await response.json();
                 const container = document.getElementById('deals-container');
@@ -108,24 +39,20 @@
                     const card = document.createElement('div');
                     card.className = 'deal-card';
                     
-                    const imgUrl = deal.image || 'https://via.placeholder.com/300x200?text=Deal';
-                    // Use extracted price or fallback
+                    const imgUrl = deal.image || 'https://via.placeholder.com/300x200?text=View+Deal';
+                    // Force a clean price display
                     const priceDisplay = (deal.price && deal.price !== "Get Price") ? deal.price : "Check Price";
 
-                    // The description is already cleaned by Python, just limit length
-                    let descText = deal.description || "";
-                    if(descText.length > 150) descText = descText.substring(0, 150) + "...";
+                    // Double clean description for display
+                    let cleanDesc = deal.description.replace(/160|Check Price/g, '').trim();
+                    if(cleanDesc.length > 150) cleanDesc = cleanDesc.substring(0, 150) + "...";
 
                     card.innerHTML = `
                         <div class="deal-img-container">
-                            <img src="${imgUrl}" 
-                                 alt="Deal" 
-                                 class="deal-img" 
-                                 loading="lazy"
-                                 onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=No+Image'">
+                            <img src="${imgUrl}" alt="Deal" class="deal-img" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=No+Image'">
                         </div>
                         <div class="deal-content">
-                            <div class="deal-desc">${descText}</div>
+                            <div class="deal-desc">${cleanDesc}</div>
                             <div class="deal-footer">
                                 <div class="deal-price">${priceDisplay}</div>
                                 <a href="${deal.link}" target="_blank" class="deal-btn">GRAB IT</a>
@@ -135,10 +62,7 @@
                     `;
                     container.appendChild(card);
                 });
-            } catch (e) {
-                console.error("Error loading deals:", e);
-                document.getElementById('deals-container').innerHTML = '<p style="text-align:center;">Failed to load deals.</p>';
-            }
+            } catch (e) { console.error(e); }
         }
         loadDeals();
     </script>
