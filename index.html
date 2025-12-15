@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unmissable Deals</title>
     <style>
-        /* Same CSS as before, just ensuring price is robust */
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6f8; margin: 0; padding: 20px; }
         h1 { text-align: center; color: #333; margin-bottom: 30px; }
         #deals-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
@@ -15,9 +14,13 @@
         .deal-img { max-width: 100%; max-height: 100%; object-fit: contain; }
         .deal-content { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
         .deal-desc { font-size: 14px; color: #444; line-height: 1.5; margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-        .deal-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+        
+        /* Updated Footer Logic */
+        .deal-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; min-height: 38px;}
         .deal-price { font-size: 18px; font-weight: 800; color: #27ae60; }
-        .deal-btn { background: #ff5722; color: white; padding: 8px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; }
+        
+        /* Button auto-aligns to right if price is missing */
+        .deal-btn { background: #ff5722; color: white; padding: 8px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; margin-left: auto; }
         .deal-date { font-size: 11px; color: #999; text-align: right; margin-top: 5px; }
     </style>
 </head>
@@ -40,10 +43,11 @@
                     card.className = 'deal-card';
                     
                     const imgUrl = deal.image || 'https://via.placeholder.com/300x200?text=View+Deal';
-                    // Force a clean price display
-                    const priceDisplay = (deal.price && deal.price !== "Get Price") ? deal.price : "Check Price";
+                    
+                    // LOGIC: Hide price if it is "Get Price" or "Check Price"
+                    const showPrice = (deal.price && deal.price !== "Get Price" && deal.price !== "Check Price");
+                    const priceHtml = showPrice ? `<div class="deal-price">${deal.price}</div>` : '';
 
-                    // Double clean description for display
                     let cleanDesc = deal.description.replace(/160|Check Price/g, '').trim();
                     if(cleanDesc.length > 150) cleanDesc = cleanDesc.substring(0, 150) + "...";
 
@@ -54,7 +58,7 @@
                         <div class="deal-content">
                             <div class="deal-desc">${cleanDesc}</div>
                             <div class="deal-footer">
-                                <div class="deal-price">${priceDisplay}</div>
+                                ${priceHtml}
                                 <a href="${deal.link}" target="_blank" class="deal-btn">GRAB IT</a>
                             </div>
                             <div class="deal-date">${deal.date}</div>
