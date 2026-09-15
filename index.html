@@ -1,1 +1,1156 @@
-<iframe src='https://inrdeals.com/embed/deals?user=esh416135721' width='100%' height='1140' frameborder='0' allowTransparency='true'> </iframe>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="UnmissableDeals identifies genuinely good deals using tracked price history and deal scoring."
+  >
+
+  <title>UnmissableDeals</title>
+
+  <style>
+    :root {
+      --background: #f5f7fb;
+      --surface: #ffffff;
+
+      --text: #172033;
+      --muted: #667085;
+
+      --border: #e4e7ec;
+
+      --brand: #e5484d;
+      --brand-dark: #c9363b;
+
+      --green: #16803c;
+
+      --shadow:
+        0 10px 28px
+        rgba(16, 24, 40, 0.08);
+
+      --radius: 18px;
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    body {
+      margin: 0;
+
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background: var(--background);
+
+      color: var(--text);
+
+      line-height: 1.5;
+    }
+
+
+    .container {
+      width: min(
+        1120px,
+        calc(100% - 32px)
+      );
+
+      margin: 0 auto;
+    }
+
+
+    /* ==========================================
+       Header
+       ========================================== */
+
+    header {
+      background:
+        linear-gradient(
+          135deg,
+          #111827 0%,
+          #1f2937 100%
+        );
+
+      color: white;
+
+      padding:
+        34px 0
+        42px;
+    }
+
+
+    .brand {
+      font-size:
+        clamp(
+          1.6rem,
+          4vw,
+          2.2rem
+        );
+
+      font-weight: 850;
+
+      letter-spacing:
+        -0.03em;
+    }
+
+
+    .brand span {
+      color: #ff6b6f;
+    }
+
+
+    .hero {
+      max-width: 780px;
+
+      margin-top: 28px;
+    }
+
+
+    .hero h1 {
+      margin: 0;
+
+      font-size:
+        clamp(
+          2.1rem,
+          6vw,
+          3.8rem
+        );
+
+      line-height: 1.05;
+
+      letter-spacing:
+        -0.045em;
+    }
+
+
+    .hero p {
+      margin:
+        18px 0 0;
+
+      max-width: 700px;
+
+      color: #d0d5dd;
+
+      font-size: 1.05rem;
+    }
+
+
+    /* ==========================================
+       Main layout
+       ========================================== */
+
+    main {
+      padding:
+        38px 0
+        60px;
+    }
+
+
+    .section {
+      margin-bottom: 48px;
+    }
+
+
+    .section-heading {
+      margin-bottom: 18px;
+    }
+
+
+    .section-heading h2 {
+      margin: 0;
+
+      font-size:
+        clamp(
+          1.45rem,
+          4vw,
+          2rem
+        );
+
+      letter-spacing:
+        -0.025em;
+    }
+
+
+    .section-heading p {
+      margin:
+        6px 0 0;
+
+      color: var(--muted);
+    }
+
+
+    /* ==========================================
+       Empty / loading states
+       ========================================== */
+
+    .state-box {
+      background:
+        var(--surface);
+
+      border:
+        1px dashed
+        #cfd4dc;
+
+      border-radius:
+        var(--radius);
+
+      padding: 30px;
+
+      text-align: center;
+
+      color:
+        var(--muted);
+    }
+
+
+    .state-box strong {
+      display: block;
+
+      margin-bottom: 6px;
+
+      color:
+        var(--text);
+
+      font-size: 1rem;
+    }
+
+
+    /* ==========================================
+       Deal cards
+       ========================================== */
+
+    .deal-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(
+            280px,
+            1fr
+          )
+        );
+
+      gap: 18px;
+    }
+
+
+    .deal-card {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 16px;
+
+      padding: 22px;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius:
+        var(--radius);
+
+      box-shadow:
+        var(--shadow);
+    }
+
+
+    .deal-top {
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
+
+      gap: 12px;
+    }
+
+
+    .score {
+      display:
+        inline-flex;
+
+      padding:
+        7px 11px;
+
+      background:
+        #fff1f1;
+
+      color:
+        #b42318;
+
+      border-radius:
+        999px;
+
+      font-size:
+        0.86rem;
+
+      font-weight: 750;
+    }
+
+
+    .verdict {
+      color:
+        var(--green);
+
+      font-size:
+        0.78rem;
+
+      font-weight: 850;
+
+      letter-spacing:
+        0.06em;
+    }
+
+
+    .deal-card h3 {
+      margin: 0;
+
+      font-size:
+        1.16rem;
+
+      line-height:
+        1.35;
+    }
+
+
+    /* ==========================================
+       Prices
+       ========================================== */
+
+    .price-row {
+      display: flex;
+
+      align-items:
+        baseline;
+
+      flex-wrap:
+        wrap;
+
+      gap: 9px;
+    }
+
+
+    .price {
+      font-size:
+        1.8rem;
+
+      font-weight: 850;
+
+      letter-spacing:
+        -0.035em;
+    }
+
+
+    .mrp {
+      color:
+        var(--muted);
+
+      text-decoration:
+        line-through;
+
+      font-size:
+        0.92rem;
+    }
+
+
+    /* ==========================================
+       Deal metrics
+       ========================================== */
+
+    .metrics {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          2,
+          1fr
+        );
+
+      gap: 10px;
+    }
+
+
+    .metric {
+      padding:
+        11px 12px;
+
+      background:
+        #f8fafc;
+
+      border-radius:
+        12px;
+    }
+
+
+    .metric-label {
+      display: block;
+
+      margin-bottom: 2px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        0.76rem;
+    }
+
+
+    .metric-value {
+      font-size:
+        0.95rem;
+
+      font-weight:
+        700;
+    }
+
+
+    .deal-summary {
+      margin: 0;
+
+      color:
+        #475467;
+
+      font-size:
+        0.92rem;
+    }
+
+
+    /* ==========================================
+       Deal button
+       ========================================== */
+
+    .deal-button {
+      display:
+        inline-flex;
+
+      justify-content:
+        center;
+
+      align-items:
+        center;
+
+      margin-top:
+        auto;
+
+      padding:
+        12px 16px;
+
+      background:
+        var(--brand);
+
+      color:
+        white;
+
+      border-radius:
+        12px;
+
+      text-decoration:
+        none;
+
+      font-weight:
+        750;
+
+      transition:
+        background 0.18s ease,
+        transform 0.18s ease;
+    }
+
+
+    .deal-button:hover {
+      background:
+        var(--brand-dark);
+
+      transform:
+        translateY(-1px);
+    }
+
+
+    /* ==========================================
+       INRDeals
+       ========================================== */
+
+    .iframe-wrap {
+      overflow: hidden;
+
+      background:
+        white;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius:
+        var(--radius);
+
+      box-shadow:
+        var(--shadow);
+    }
+
+
+    .iframe-wrap iframe {
+      display: block;
+
+      width: 100%;
+
+      min-height:
+        1140px;
+
+      border: 0;
+    }
+
+
+    /* ==========================================
+       Disclosure
+       ========================================== */
+
+    .disclosure {
+      margin:
+        20px 0 0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        0.82rem;
+
+      text-align:
+        center;
+    }
+
+
+    /* ==========================================
+       Footer
+       ========================================== */
+
+    footer {
+      padding:
+        28px 0
+        36px;
+
+      border-top:
+        1px solid
+        var(--border);
+
+      color:
+        var(--muted);
+
+      text-align:
+        center;
+
+      font-size:
+        0.82rem;
+    }
+
+
+    /* ==========================================
+       Mobile
+       ========================================== */
+
+    @media (
+      max-width: 640px
+    ) {
+
+      .container {
+        width:
+          calc(100% - 20px);
+      }
+
+
+      header {
+        padding-top:
+          24px;
+      }
+
+
+      .metrics {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <header>
+
+    <div class="container">
+
+      <div class="brand">
+        🔥 Unmissable<span>Deals</span>
+      </div>
+
+
+      <div class="hero">
+
+        <h1>
+          Know when a deal is actually a deal.
+        </h1>
+
+        <p>
+          We compare current prices with tracked
+          price history so you can see whether a
+          discount is genuinely unusual — not just
+          a large percentage against an inflated MRP.
+        </p>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="container">
+
+    <!-- ======================================
+         Verified UnmissableDeals
+         ====================================== -->
+
+    <section class="section">
+
+      <div class="section-heading">
+
+        <h2>
+          Verified by UnmissableDeals
+        </h2>
+
+        <p>
+          Deals backed by our own tracked
+          price history and Deal Score.
+        </p>
+
+      </div>
+
+
+      <div id="verified-deals">
+
+        <div class="state-box">
+
+          <strong>
+            Loading verified deals…
+          </strong>
+
+          Checking the latest
+          published deals.
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================
+         INRDeals supplementary feed
+         ====================================== -->
+
+    <section class="section">
+
+      <div class="section-heading">
+
+        <h2>
+          More Live Deals
+        </h2>
+
+        <p>
+          Additional offers provided
+          through INRDeals.
+        </p>
+
+      </div>
+
+
+      <div class="iframe-wrap">
+
+        <iframe
+          src="https://inrdeals.com/embed/deals?user=esh416135721"
+          title="More live deals from INRDeals"
+          loading="lazy"
+          allowtransparency="true"
+        >
+        </iframe>
+
+      </div>
+
+    </section>
+
+
+    <p class="disclosure">
+
+      Some links on this site are affiliate links.
+      We may earn a commission when you purchase
+      through them, at no additional cost to you.
+
+      Affiliate payout does not determine the
+      UnmissableDeals Deal Score.
+
+    </p>
+
+  </main>
+
+
+  <footer>
+
+    <div class="container">
+
+      ©
+      <span id="year"></span>
+      UnmissableDeals.
+
+      Price-history statements refer only
+      to the period we have tracked.
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    const API_URL =
+      "https://api.unmissabledeals.store/deals";
+
+
+    const dealsContainer =
+      document.getElementById(
+        "verified-deals"
+      );
+
+
+    document
+      .getElementById("year")
+      .textContent =
+        new Date().getFullYear();
+
+
+    function formatMoney(value) {
+
+      if (
+        value === null ||
+        value === undefined
+      ) {
+        return "—";
+      }
+
+
+      return new Intl.NumberFormat(
+        "en-IN",
+        {
+          style: "currency",
+          currency: "INR",
+          maximumFractionDigits: 0
+        }
+      ).format(value);
+
+    }
+
+
+    function formatPercent(value) {
+
+      if (
+        value === null ||
+        value === undefined
+      ) {
+        return "—";
+      }
+
+
+      return (
+        Number(value)
+          .toFixed(1)
+        + "%"
+      );
+
+    }
+
+
+    function escapeHtml(value) {
+
+      return String(
+        value ?? ""
+      )
+        .replaceAll(
+          "&",
+          "&amp;"
+        )
+        .replaceAll(
+          "<",
+          "&lt;"
+        )
+        .replaceAll(
+          ">",
+          "&gt;"
+        )
+        .replaceAll(
+          "\"",
+          "&quot;"
+        )
+        .replaceAll(
+          "'",
+          "&#039;"
+        );
+
+    }
+
+
+    function renderEmpty() {
+
+      dealsContainer.innerHTML = `
+
+        <div class="state-box">
+
+          <strong>
+            No verified deals published yet.
+          </strong>
+
+          We are already tracking products.
+
+          A deal will appear here only after
+          enough price history is available
+          and it passes our Deal Score threshold.
+
+        </div>
+
+      `;
+
+    }
+
+
+    function renderError() {
+
+      dealsContainer.innerHTML = `
+
+        <div class="state-box">
+
+          <strong>
+            Verified deals are temporarily unavailable.
+          </strong>
+
+          The additional live-deals section
+          below is still available.
+
+        </div>
+
+      `;
+
+    }
+
+
+    function renderDeals(deals) {
+
+      const cards =
+        deals.map(
+          deal => {
+
+            const currentPrice =
+              deal.live_price
+              ??
+              deal.current_price;
+
+
+            const mrp =
+              deal.live_mrp;
+
+
+            const affiliateUrl =
+              deal.affiliate_url
+              ||
+              deal.product_url
+              ||
+              "#";
+
+
+            const name =
+              deal.headline
+              ||
+              deal.canonical_name
+              ||
+              "Deal";
+
+
+            const summary =
+              deal.summary
+              ||
+              "Price-history verified deal.";
+
+
+            return `
+
+              <article class="deal-card">
+
+                <div class="deal-top">
+
+                  <span class="score">
+
+                    Deal Score
+                    ${escapeHtml(
+                      deal.deal_score ?? "—"
+                    )}
+                    /100
+
+                  </span>
+
+
+                  <span class="verdict">
+
+                    ${escapeHtml(
+                      deal.verdict
+                      ??
+                      "VERIFIED"
+                    )}
+
+                  </span>
+
+                </div>
+
+
+                <h3>
+                  ${escapeHtml(name)}
+                </h3>
+
+
+                <div class="price-row">
+
+                  <span class="price">
+
+                    ${formatMoney(
+                      currentPrice
+                    )}
+
+                  </span>
+
+
+                  ${
+                    mrp
+
+                    ?
+
+                    `
+                    <span class="mrp">
+                      ${formatMoney(mrp)}
+                    </span>
+                    `
+
+                    :
+
+                    ""
+                  }
+
+                </div>
+
+
+                <div class="metrics">
+
+
+                  <div class="metric">
+
+                    <span class="metric-label">
+                      Typical tracked price
+                    </span>
+
+                    <span class="metric-value">
+
+                      ${formatMoney(
+                        deal.typical_price
+                      )}
+
+                    </span>
+
+                  </div>
+
+
+                  <div class="metric">
+
+                    <span class="metric-label">
+                      Observed low
+                    </span>
+
+                    <span class="metric-value">
+
+                      ${formatMoney(
+                        deal.observed_low
+                      )}
+
+                    </span>
+
+                  </div>
+
+
+                  <div class="metric">
+
+                    <span class="metric-label">
+                      Below typical
+                    </span>
+
+                    <span class="metric-value">
+
+                      ${formatPercent(
+                        deal.discount_vs_typical
+                      )}
+
+                    </span>
+
+                  </div>
+
+
+                  <div class="metric">
+
+                    <span class="metric-label">
+                      Retailer
+                    </span>
+
+                    <span class="metric-value">
+
+                      ${escapeHtml(
+                        deal.retailer
+                        ||
+                        "—"
+                      )}
+
+                    </span>
+
+                  </div>
+
+
+                </div>
+
+
+                <p class="deal-summary">
+
+                  ${escapeHtml(summary)}
+
+                </p>
+
+
+                <a
+                  class="deal-button"
+                  href="${escapeHtml(
+                    affiliateUrl
+                  )}"
+                  target="_blank"
+                  rel="sponsored noopener noreferrer"
+                >
+
+                  View Deal
+
+                </a>
+
+              </article>
+
+            `;
+
+          }
+
+        ).join("");
+
+
+      dealsContainer.innerHTML = `
+
+        <div class="deal-grid">
+          ${cards}
+        </div>
+
+      `;
+
+    }
+
+
+    async function loadDeals() {
+
+      try {
+
+        const response =
+          await fetch(
+            API_URL,
+            {
+              method: "GET",
+
+              headers: {
+                "Accept":
+                  "application/json"
+              },
+
+              cache:
+                "no-store"
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            `API returned ${
+              response.status
+            }`
+          );
+
+        }
+
+
+        const deals =
+          await response.json();
+
+
+        if (
+          !Array.isArray(deals)
+          ||
+          deals.length === 0
+        ) {
+
+          renderEmpty();
+
+          return;
+
+        }
+
+
+        renderDeals(
+          deals
+        );
+
+      }
+
+      catch (error) {
+
+        console.error(
+          "Unable to load verified deals:",
+          error
+        );
+
+
+        renderError();
+
+      }
+
+    }
+
+
+    loadDeals();
+
+  </script>
+
+</body>
+</html>
