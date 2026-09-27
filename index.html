@@ -10,7 +10,7 @@
 
   <meta
     name="description"
-    content="UnmissableDeals identifies genuinely good deals using tracked price history and deal scoring."
+    content="UnmissableDeals tracks product prices and highlights genuinely strong deals using price history and deal scoring."
   >
 
   <title>UnmissableDeals</title>
@@ -29,6 +29,13 @@
       --brand-dark: #c9363b;
 
       --green: #16803c;
+      --green-bg: #ecfdf3;
+
+      --blue: #175cd3;
+      --blue-bg: #eff8ff;
+
+      --amber: #b54708;
+      --amber-bg: #fffaeb;
 
       --shadow:
         0 10px 28px
@@ -192,6 +199,15 @@
     }
 
 
+    .section-note {
+      margin-top: 8px;
+
+      color: var(--muted);
+
+      font-size: 0.86rem;
+    }
+
+
     /* ==========================================
        Empty / loading states
        ========================================== */
@@ -229,10 +245,11 @@
 
 
     /* ==========================================
-       Deal cards
+       Grids
        ========================================== */
 
-    .deal-grid {
+    .deal-grid,
+    .product-grid {
       display: grid;
 
       grid-template-columns:
@@ -248,7 +265,12 @@
     }
 
 
-    .deal-card {
+    /* ==========================================
+       Cards
+       ========================================== */
+
+    .deal-card,
+    .product-card {
       display: flex;
 
       flex-direction: column;
@@ -272,7 +294,8 @@
     }
 
 
-    .deal-top {
+    .deal-top,
+    .product-top {
       display: flex;
 
       justify-content:
@@ -282,8 +305,37 @@
         center;
 
       gap: 12px;
+
+      flex-wrap: wrap;
     }
 
+
+    .deal-card h3,
+    .product-card h3 {
+      margin: 0;
+
+      font-size:
+        1.16rem;
+
+      line-height:
+        1.35;
+    }
+
+
+    .product-brand {
+      margin-top: -10px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        0.84rem;
+    }
+
+
+    /* ==========================================
+       Deal badges
+       ========================================== */
 
     .score {
       display:
@@ -304,7 +356,8 @@
       font-size:
         0.86rem;
 
-      font-weight: 750;
+      font-weight:
+        750;
     }
 
 
@@ -315,21 +368,84 @@
       font-size:
         0.78rem;
 
-      font-weight: 850;
+      font-weight:
+        850;
 
       letter-spacing:
         0.06em;
     }
 
 
-    .deal-card h3 {
-      margin: 0;
+    /* ==========================================
+       Product badges
+       ========================================== */
+
+    .status-chip {
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      padding:
+        6px 10px;
+
+      border-radius:
+        999px;
 
       font-size:
-        1.16rem;
+        0.76rem;
 
-      line-height:
-        1.35;
+      font-weight:
+        800;
+
+      letter-spacing:
+        0.04em;
+    }
+
+
+    .status-tracking {
+      background:
+        var(--blue-bg);
+
+      color:
+        var(--blue);
+    }
+
+
+    .status-deal {
+      background:
+        var(--green-bg);
+
+      color:
+        var(--green);
+    }
+
+
+    .retailer-chip {
+      display:
+        inline-flex;
+
+      padding:
+        6px 10px;
+
+      background:
+        #f2f4f7;
+
+      color:
+        #475467;
+
+      border-radius:
+        999px;
+
+      font-size:
+        0.76rem;
+
+      font-weight:
+        750;
+
+      text-transform:
+        capitalize;
     }
 
 
@@ -354,7 +470,8 @@
       font-size:
         1.8rem;
 
-      font-weight: 850;
+      font-weight:
+        850;
 
       letter-spacing:
         -0.035em;
@@ -373,8 +490,32 @@
     }
 
 
+    .discount-badge {
+      display:
+        inline-flex;
+
+      padding:
+        5px 8px;
+
+      background:
+        var(--amber-bg);
+
+      color:
+        var(--amber);
+
+      border-radius:
+        8px;
+
+      font-size:
+        0.76rem;
+
+      font-weight:
+        750;
+    }
+
+
     /* ==========================================
-       Deal metrics
+       Metrics
        ========================================== */
 
     .metrics {
@@ -399,6 +540,8 @@
 
       border-radius:
         12px;
+
+      min-width: 0;
     }
 
 
@@ -416,15 +559,25 @@
 
 
     .metric-value {
+      display: block;
+
       font-size:
         0.95rem;
 
       font-weight:
         700;
+
+      overflow-wrap:
+        anywhere;
     }
 
 
-    .deal-summary {
+    /* ==========================================
+       Summaries
+       ========================================== */
+
+    .deal-summary,
+    .product-summary {
       margin: 0;
 
       color:
@@ -436,10 +589,11 @@
 
 
     /* ==========================================
-       Deal button
+       Buttons
        ========================================== */
 
-    .deal-button {
+    .deal-button,
+    .product-button {
       display:
         inline-flex;
 
@@ -476,7 +630,8 @@
     }
 
 
-    .deal-button:hover {
+    .deal-button:hover,
+    .product-button:hover {
       background:
         var(--brand-dark);
 
@@ -610,10 +765,12 @@
         </h1>
 
         <p>
-          We compare current prices with tracked
-          price history so you can see whether a
-          discount is genuinely unusual — not just
-          a large percentage against an inflated MRP.
+          We track product prices over time and
+          separate ordinary discounts from genuinely
+          unusual price drops. Products can appear
+          while they are still building price history;
+          verified deals are promoted only after they
+          pass our Deal Score rules.
         </p>
 
       </div>
@@ -626,7 +783,7 @@
   <main class="container">
 
     <!-- ======================================
-         Verified UnmissableDeals
+         Verified deals
          ====================================== -->
 
     <section class="section">
@@ -655,6 +812,52 @@
 
           Checking the latest
           published deals.
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================
+         Tracked products
+         ====================================== -->
+
+    <section class="section">
+
+      <div class="section-heading">
+
+        <h2>
+          Products We're Tracking
+        </h2>
+
+        <p>
+          Current prices from products discovered
+          and monitored by UnmissableDeals.
+        </p>
+
+        <div class="section-note">
+
+          “TRACKING” means we are collecting price
+          history; it does not mean the product is
+          currently a verified deal.
+
+        </div>
+
+      </div>
+
+
+      <div id="tracked-products">
+
+        <div class="state-box">
+
+          <strong>
+            Loading tracked products…
+          </strong>
+
+          Reading the latest cached
+          prices from our database.
 
         </div>
 
@@ -730,8 +933,12 @@
 
   <script>
 
-    const API_URL =
+    const DEALS_API_URL =
       "https://api.unmissabledeals.store/deals";
+
+
+    const PRODUCTS_API_URL =
+      "https://api.unmissabledeals.store/products";
 
 
     const dealsContainer =
@@ -740,11 +947,21 @@
       );
 
 
+    const productsContainer =
+      document.getElementById(
+        "tracked-products"
+      );
+
+
     document
       .getElementById("year")
       .textContent =
         new Date().getFullYear();
 
+
+    /* ==========================================
+       Formatting helpers
+       ========================================== */
 
     function formatMoney(value) {
 
@@ -763,7 +980,33 @@
           currency: "INR",
           maximumFractionDigits: 0
         }
-      ).format(value);
+      ).format(
+        Number(value)
+      );
+
+    }
+
+
+    function formatPaise(value) {
+
+      if (
+        value === null ||
+        value === undefined
+      ) {
+        return "—";
+      }
+
+
+      return new Intl.NumberFormat(
+        "en-IN",
+        {
+          style: "currency",
+          currency: "INR",
+          maximumFractionDigits: 2
+        }
+      ).format(
+        Number(value) / 100
+      );
 
     }
 
@@ -783,6 +1026,40 @@
           .toFixed(1)
         + "%"
       );
+
+    }
+
+
+    function formatUpdated(value) {
+
+      if (!value) {
+        return "—";
+      }
+
+
+      const date =
+        new Date(value);
+
+
+      if (
+        Number.isNaN(
+          date.getTime()
+        )
+      ) {
+        return "—";
+      }
+
+
+      return new Intl.DateTimeFormat(
+        "en-IN",
+        {
+          dateStyle:
+            "medium",
+
+          timeStyle:
+            "short"
+        }
+      ).format(date);
 
     }
 
@@ -816,7 +1093,11 @@
     }
 
 
-    function renderEmpty() {
+    /* ==========================================
+       Verified-deal states
+       ========================================== */
+
+    function renderDealsEmpty() {
 
       dealsContainer.innerHTML = `
 
@@ -839,7 +1120,7 @@
     }
 
 
-    function renderError() {
+    function renderDealsError() {
 
       dealsContainer.innerHTML = `
 
@@ -849,8 +1130,7 @@
             Verified deals are temporarily unavailable.
           </strong>
 
-          The additional live-deals section
-          below is still available.
+          Tracked products below may still be available.
 
         </div>
 
@@ -858,6 +1138,54 @@
 
     }
 
+
+    /* ==========================================
+       Product states
+       ========================================== */
+
+    function renderProductsEmpty() {
+
+      productsContainer.innerHTML = `
+
+        <div class="state-box">
+
+          <strong>
+            No products are being tracked yet.
+          </strong>
+
+          Newly discovered products will
+          appear here after their first
+          verified price check.
+
+        </div>
+
+      `;
+
+    }
+
+
+    function renderProductsError() {
+
+      productsContainer.innerHTML = `
+
+        <div class="state-box">
+
+          <strong>
+            Tracked products are temporarily unavailable.
+          </strong>
+
+          Please try again shortly.
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* ==========================================
+       Render verified deals
+       ========================================== */
 
     function renderDeals(deals) {
 
@@ -1078,15 +1406,351 @@
     }
 
 
+    /* ==========================================
+       Render tracked products
+       ========================================== */
+
+    function renderProducts(products) {
+
+      const cards =
+        products.map(
+          product => {
+
+            const affiliateUrl =
+              product.affiliate_url
+              ||
+              product.product_url
+              ||
+              "#";
+
+
+            const verdict =
+              product.verdict
+              ||
+              "TRACKING";
+
+
+            const qualified =
+              Boolean(
+                product.qualified_deal
+              );
+
+
+            const availability =
+              product.availability
+              === "in_stock"
+
+              ?
+
+              "In stock"
+
+              :
+
+              (
+                product.availability
+                ||
+                "Unknown"
+              );
+
+
+            const historyPoints =
+              Number(
+                product.history_points
+                ??
+                0
+              );
+
+
+            const trackingText =
+              historyPoints === 1
+
+              ?
+
+              "1 observed price"
+
+              :
+
+              `${historyPoints} observed prices`;
+
+
+            return `
+
+              <article class="product-card">
+
+                <div class="product-top">
+
+                  <span
+                    class="status-chip ${
+                      qualified
+                        ? "status-deal"
+                        : "status-tracking"
+                    }"
+                  >
+
+                    ${escapeHtml(verdict)}
+
+                  </span>
+
+
+                  <span class="retailer-chip">
+
+                    ${escapeHtml(
+                      product.retailer
+                      ||
+                      "retailer"
+                    )}
+
+                  </span>
+
+                </div>
+
+
+                <h3>
+
+                  ${escapeHtml(
+                    product.name
+                    ||
+                    "Tracked product"
+                  )}
+
+                </h3>
+
+
+                ${
+                  product.brand
+
+                  ?
+
+                  `
+                  <div class="product-brand">
+                    ${escapeHtml(
+                      product.brand
+                    )}
+                  </div>
+                  `
+
+                  :
+
+                  ""
+                }
+
+
+                <div class="price-row">
+
+                  <span class="price">
+
+                    ${formatPaise(
+                      product.current_price_paise
+                    )}
+
+                  </span>
+
+
+                  ${
+                    product.mrp_paise
+                    &&
+                    Number(
+                      product.mrp_paise
+                    )
+                    >
+                    Number(
+                      product.current_price_paise
+                      ??
+                      0
+                    )
+
+                    ?
+
+                    `
+                    <span class="mrp">
+
+                      ${formatPaise(
+                        product.mrp_paise
+                      )}
+
+                    </span>
+                    `
+
+                    :
+
+                    ""
+                  }
+
+
+                  ${
+                    product.discount_percent
+                    !== null
+                    &&
+                    product.discount_percent
+                    !== undefined
+
+                    ?
+
+                    `
+                    <span class="discount-badge">
+
+                      ${formatPercent(
+                        product.discount_percent
+                      )}
+                      off MRP
+
+                    </span>
+                    `
+
+                    :
+
+                    ""
+                  }
+
+                </div>
+
+
+                <div class="metrics">
+
+
+                  <div class="metric">
+
+                    <span class="metric-label">
+                      Availability
+                    </span>
+
+                    <span class="metric-value">
+
+                      ${escapeHtml(
+                        availability
+                      )}
+
+                    </span>
+
+                  </div>
+
+
+                  <div class="metric">
+
+                    <span class="metric-label">
+                      Price history
+                    </span>
+
+                    <span class="metric-value">
+
+                      ${escapeHtml(
+                        trackingText
+                      )}
+
+                    </span>
+
+                  </div>
+
+
+                  <div class="metric">
+
+                    <span class="metric-label">
+                      Seller
+                    </span>
+
+                    <span class="metric-value">
+
+                      ${escapeHtml(
+                        product.seller
+                        ||
+                        "—"
+                      )}
+
+                    </span>
+
+                  </div>
+
+
+                  <div class="metric">
+
+                    <span class="metric-label">
+                      Last checked
+                    </span>
+
+                    <span class="metric-value">
+
+                      ${escapeHtml(
+                        formatUpdated(
+                          product.last_updated_at
+                        )
+                      )}
+
+                    </span>
+
+                  </div>
+
+
+                </div>
+
+
+                <p class="product-summary">
+
+                  ${
+                    qualified
+
+                    ?
+
+                    `Deal Score: ${escapeHtml(
+                      product.deal_score
+                      ??
+                      "—"
+                    )}/100.`
+
+                    :
+
+                    "We are tracking this product's price. It has not yet been promoted as a verified deal."
+                  }
+
+                </p>
+
+
+                <a
+                  class="product-button"
+                  href="${escapeHtml(
+                    affiliateUrl
+                  )}"
+                  target="_blank"
+                  rel="sponsored noopener noreferrer"
+                >
+
+                  View Product
+
+                </a>
+
+              </article>
+
+            `;
+
+          }
+
+        ).join("");
+
+
+      productsContainer.innerHTML = `
+
+        <div class="product-grid">
+          ${cards}
+        </div>
+
+      `;
+
+    }
+
+
+    /* ==========================================
+       Load verified deals
+       ========================================== */
+
     async function loadDeals() {
 
       try {
 
         const response =
           await fetch(
-            API_URL,
+            DEALS_API_URL,
             {
-              method: "GET",
+              method:
+                "GET",
 
               headers: {
                 "Accept":
@@ -1120,7 +1784,7 @@
           deals.length === 0
         ) {
 
-          renderEmpty();
+          renderDealsEmpty();
 
           return;
 
@@ -1141,7 +1805,82 @@
         );
 
 
-        renderError();
+        renderDealsError();
+
+      }
+
+    }
+
+
+    /* ==========================================
+       Load tracked products
+       ========================================== */
+
+    async function loadProducts() {
+
+      try {
+
+        const response =
+          await fetch(
+            PRODUCTS_API_URL,
+            {
+              method:
+                "GET",
+
+              headers: {
+                "Accept":
+                  "application/json"
+              },
+
+              cache:
+                "no-store"
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            `API returned ${
+              response.status
+            }`
+          );
+
+        }
+
+
+        const products =
+          await response.json();
+
+
+        if (
+          !Array.isArray(products)
+          ||
+          products.length === 0
+        ) {
+
+          renderProductsEmpty();
+
+          return;
+
+        }
+
+
+        renderProducts(
+          products
+        );
+
+      }
+
+      catch (error) {
+
+        console.error(
+          "Unable to load tracked products:",
+          error
+        );
+
+
+        renderProductsError();
 
       }
 
@@ -1149,6 +1888,8 @@
 
 
     loadDeals();
+
+    loadProducts();
 
   </script>
 
